@@ -1,46 +1,57 @@
-"""Train and evaluate the classification model: predict cross-sectional
-5-day relative performance.
+"""Train and evaluate the volatility forecasting model.
 
-Target: 1 if a stock's 5-day forward return beats the basket's median
-5-day forward return on that date, else 0. This cancels out market-wide
-moves (a day where everything is up) and isolates stock-specific signal,
-which is what technical indicators can plausibly predict.
+Target: realized volatility (std dev of daily returns) over the NEXT 5
+trading days, per stock. This is a regression problem, not classification --
+we're forecasting magnitude of movement, not direction.
 
-Split: time-based (train on earlier dates, test on later) -- never random,
-since random splitting would leak future information into training.
+Why volatility instead of direction: volatility clusters (high-vol periods
+tend to follow high-vol periods) in a way next-day/next-5-day direction does
+not for large-cap stocks -- confirmed empirically after 7 failed attempts
+at direction prediction (see model_classifier_archive.py.bak). This forecast
+feeds position sizing and stop-loss width in the rules-based decision layer
+(rules.py), not a buy/sell signal directly.
+
+Split: time-based, same reasoning as the archived classifier.
 """
+import numpy as np
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.ensemble import HistGradientBoostingRegressor
+from sklearn.metrics import mean_absolute_error, r2_score
 
 FEATURE_COLS = [
     "return_1d", "return_5d", "return_20d",
     "price_vs_ma20", "rsi_14", "volatility_20d",
     "volume_ratio", "volume_change_1d",
+    "sentiment",
 ]
 
 
 def build_dataset(featured: pd.DataFrame) -> pd.DataFrame:
-    """Add the cross-sectional target label.
+    """Add the forward volatility target.
 
-    Order matters: drop rows missing forward_return_5d or features BEFORE
-    computing the daily median, otherwise NaN comparisons silently mislabel
-    as 0 instead of being excluded.
+    forward_volatility_5d = std dev of the next 5 daily returns, computed
+    by shifting the already-known volatility_20d-style rolling std forward.
+    We compute it directly from daily returns to keep the exact 5-day window.
     """
     df = featured.copy()
-    df["forward_return_5d"] = (
-        df.groupby(level="symbol")["close"].shift(-5) / df["close"] - 1
-    )
-    cols = FEATURE_COLS + ["forward_return_5d"]
-    df = df.dropna(subset=cols)
+    daily_return = df.groupby(level="symbol")["close"].pct_change()
 
-    daily_median = df.groupby(level="timestamp")["forward_return_5d"].transform("median")
-    df["target"] = (df["forward_return_5d"] > daily_median).astype(int)
-    return df
+    # std of the 5 returns starting the day AFTER today, i.e. a forward-
+    # shifted rolling window. rolling() looks backward, so we compute it on
+    # the reversed-per-symbol series and shift, then flip back.
+    def _forward_vol(g: pd.Series) -> pd.Series:
+        return g[::-1].rolling(5).std()[::-1].shift(-1)
+
+    df["forward_volatility_5d"] = (
+        daily_return.groupby(level="symbol").transform(_forward_vol)
+    )
+
+    cols = FEATURE_COLS + ["forward_volatility_5d"]
+    return df.dropna(subset=cols)
 
 
 def time_split(df: pd.DataFrame, test_frac: float = 0.2):
-    """Split by timestamp, not randomly -- last test_frac of dates go to test."""
+    """Split by timestamp, not randomly."""
     dates = df.index.get_level_values("timestamp").unique().sort_values()
     cutoff = dates[int(len(dates) * (1 - test_frac))]
     train = df[df.index.get_level_values("timestamp") < cutoff]
@@ -48,20 +59,21 @@ def time_split(df: pd.DataFrame, test_frac: float = 0.2):
     return train, test
 
 
-def train_model(train: pd.DataFrame) -> RandomForestClassifier:
-    model = RandomForestClassifier(
-        n_estimators=200, max_depth=5, random_state=42, n_jobs=-1
+def train_model(train: pd.DataFrame) -> HistGradientBoostingRegressor:
+    model = HistGradientBoostingRegressor(
+        max_depth=5, learning_rate=0.05, max_iter=300, random_state=42
     )
-    model.fit(train[FEATURE_COLS], train["target"])
+    model.fit(train[FEATURE_COLS], train["forward_volatility_5d"])
     return model
 
 
 if __name__ == "__main__":
     from data import fetch_daily_bars
-    from features import add_features
+    from features import add_features, add_sentiment
 
     bars = fetch_daily_bars()
     featured = add_features(bars)
+    featured = add_sentiment(featured)
     dataset = build_dataset(featured)
 
     train, test = time_split(dataset)
@@ -69,6 +81,13 @@ if __name__ == "__main__":
 
     model = train_model(train)
     preds = model.predict(test[FEATURE_COLS])
+    actual = test["forward_volatility_5d"]
 
-    print(f"Test accuracy: {accuracy_score(test['target'], preds):.4f}")
-    print(classification_report(test["target"], preds))
+    mae = mean_absolute_error(actual, preds)
+    r2 = r2_score(actual, preds)
+    # Naive baseline: just use today's trailing 20-day volatility as the
+    # forecast. If our model can't beat this, it's not adding value.
+    baseline_mae = mean_absolute_error(actual, test["volatility_20d"])
+
+    print(f"Model MAE: {mae:.5f}  (baseline MAE using volatility_20d: {baseline_mae:.5f})")
+    print(f"Model R^2: {r2:.4f}")

@@ -5,7 +5,7 @@ import pandas as pd
 from alpaca.data.historical import StockHistoricalDataClient
 from alpaca.data.requests import StockBarsRequest
 from alpaca.data.timeframe import TimeFrame
-from alpaca.data.enums import DataFeed
+from alpaca.data.enums import DataFeed, Adjustment
 
 from config import ALPACA_API_KEY, ALPACA_SECRET_KEY, TICKERS
 
@@ -27,6 +27,7 @@ def fetch_daily_bars(tickers: list[str] = TICKERS, years: int = 5) -> pd.DataFra
         start=start,
         end=end,
         feed=DataFeed.IEX,  # free-tier accounts don't have SIP access
+        adjustment=Adjustment.ALL,  # adjust for both splits and dividends
     )
     bars = client.get_stock_bars(request)
     df = bars.df  # MultiIndex (symbol, timestamp)
