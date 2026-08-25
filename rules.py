@@ -1,61 +1,68 @@
-"""Rules-based BUY/SELL/HOLD decisions, using the volatility model's
-forecast for position sizing and stop-loss width -- not for the decision
-itself. The decision logic here is deliberately simple and interpretable,
-not learned, per the earlier finding that ML doesn't reliably find
-direction signal in this feature set.
+"""Mostly-invested position-weighting logic, using the volatility model's
+forecast for fine-tuning within each band -- not for the core decision.
 
-Entry/exit rules:
-  BUY:  RSI < 30 (oversold) AND price above its 50-day MA (longer-horizon
-        uptrend filter -- deliberately NOT the 20-day MA, which reacts on
-        nearly the same timescale as RSI and made this combination almost
-        never fire: 0 co-occurrences across the full test set. A 50-day
-        filter checks the broader trend while RSI times the pullback
-        within it.)
-  SELL: RSI > 70 (overbought), OR price has dropped below a volatility-
-        scaled stop-loss from its recent high
-  HOLD: otherwise
+REDESIGN NOTE: the original version only decided whether to hold a
+position at all (rare RSI<30-and-uptrend BUY triggers, cash otherwise).
+Backtested result: 7% return vs 97.8% for equal-weight buy-and-hold over
+the same ~3yr period -- the strategy was in cash for most of a bull run.
+Root cause was structural (under-trading), not bad entry logic (the trades
+that did fire had a 61% win rate). This version stays invested by default
+across the basket and uses RSI/trend to over/underweight, rather than
+gating market participation entirely.
 
-Position sizing: inversely scaled to forecast volatility -- lower forecast
-volatility allows a larger position (up to MAX_POSITION_PCT of portfolio),
-higher forecast volatility scales it down.
+Weighting rules:
+  BASE:        default weight when neutral -- equal-weight across the
+               basket (1 / len(TICKERS))
+  OVERWEIGHT:  RSI < 40 AND price above 50-day MA (buying a dip within an
+               uptrend) -- larger-than-base position
+  UNDERWEIGHT: RSI > 70 (overbought) -- reduced position, frees capital
+  Stop-loss:   still applies per-position, volatility-scaled, as a risk
+               backstop independent of the weighting logic above.
 """
 import pandas as pd
 
-from config import BUY_THRESHOLD, SELL_THRESHOLD  # noqa: F401 (kept for future tuning, unused directly here)
+from config import TICKERS
 
-RSI_OVERSOLD = 30
+RSI_DIP = 40
 RSI_OVERBOUGHT = 70
-MAX_POSITION_PCT = 0.10          # cap per-position size as a fraction of portfolio
+BASE_WEIGHT = 1.0 / len(TICKERS)
+OVERWEIGHT_MULTIPLIER = 1.5
+UNDERWEIGHT_MULTIPLIER = 0.3
+MAX_POSITION_PCT = 0.10          # cap per-position size regardless of weighting band
 STOP_LOSS_VOL_MULTIPLIER = 3.0   # stop-loss distance = N x forecast daily volatility
 BASE_STOP_LOSS_PCT = 0.05        # floor, in case forecast volatility is ~0
 
 
 def generate_signals(featured: pd.DataFrame, forecast_volatility: pd.Series) -> pd.DataFrame:
     """Given the feature table and a per-row forecast volatility (aligned
-    on the same (symbol, timestamp) index), return BUY/SELL/HOLD signals
-    plus position size and stop-loss distance.
+    on the same (symbol, timestamp) index), return a target weight
+    (BUY/HOLD/SELL relabeled as weight bands) plus stop-loss distance.
+
+    signal column kept as BUY/HOLD/SELL for compatibility with
+    backtest.py's trade-log/win-rate accounting (BUY = enter or increase,
+    SELL = reduce toward zero, HOLD = maintain).
     """
     df = featured.copy()
     df["forecast_volatility"] = forecast_volatility
 
     is_uptrend = df["price_vs_ma50"] > 0
-    oversold = df["rsi_14"] < RSI_OVERSOLD
+    dip_in_uptrend = (df["rsi_14"] < RSI_DIP) & is_uptrend
     overbought = df["rsi_14"] > RSI_OVERBOUGHT
 
-    df["signal"] = "HOLD"
-    df.loc[oversold & is_uptrend, "signal"] = "BUY"
-    df.loc[overbought, "signal"] = "SELL"
+    weight = pd.Series(BASE_WEIGHT, index=df.index)
+    weight[dip_in_uptrend] = BASE_WEIGHT * OVERWEIGHT_MULTIPLIER
+    weight[overbought] = BASE_WEIGHT * UNDERWEIGHT_MULTIPLIER
 
-    # Position sizing: scale MAX_POSITION_PCT down as forecast volatility
-    # rises. Uses the cross-sectional median forecast volatility that day
-    # as the reference point, so sizing is relative to the basket, not an
-    # arbitrary fixed volatility level.
+    # Volatility still scales sizing within each band, same reasoning as
+    # before -- relative to the basket's median forecast volatility that day.
     daily_median_vol = df.groupby(level="timestamp")["forecast_volatility"].transform("median")
     vol_ratio = (df["forecast_volatility"] / daily_median_vol).clip(lower=0.25, upper=4.0)
-    df["position_size_pct"] = (MAX_POSITION_PCT / vol_ratio).clip(upper=MAX_POSITION_PCT)
+    df["position_size_pct"] = (weight / vol_ratio).clip(upper=MAX_POSITION_PCT)
 
-    # Stop-loss distance: wider for higher forecast volatility, so normal
-    # swings in a volatile stock don't trigger a premature exit.
+    df["signal"] = "HOLD"
+    df.loc[dip_in_uptrend, "signal"] = "BUY"
+    df.loc[overbought, "signal"] = "SELL"
+
     df["stop_loss_pct"] = (df["forecast_volatility"] * STOP_LOSS_VOL_MULTIPLIER).clip(
         lower=BASE_STOP_LOSS_PCT
     )
@@ -83,4 +90,4 @@ if __name__ == "__main__":
 
     print(signals["signal"].value_counts())
     print()
-    print(signals.head(15))
+    print(signals["position_size_pct"].describe())
