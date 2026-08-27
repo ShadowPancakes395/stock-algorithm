@@ -7,6 +7,7 @@ load_dotenv()
 ALPACA_API_KEY = os.getenv("ALPACA_API_KEY")
 ALPACA_SECRET_KEY = os.getenv("ALPACA_SECRET_KEY")
 ALPACA_PAPER = os.getenv("ALPACA_PAPER", "true").lower() == "true"
+NEWSAPI_KEY = os.getenv("NEWSAPI_API_KEY")
 
 TICKERS = [
     "AAPL", "MSFT", "GOOGL", "NVDA", "META", "JPM", "JNJ", "PG",

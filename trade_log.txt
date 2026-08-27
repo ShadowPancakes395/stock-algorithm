@@ -1,0 +1,58 @@
+[2026-08-26T15:00:04.153534] === Starting daily trading run ===
+[2026-08-26T15:00:09.537855] Generated targets using data through 2026-08-19 (28 tickers)
+[2026-08-26T15:00:09.635421]   buy AMT: $3574.94 (order d7f8b68e-3110-4bbd-88f1-aad7b48794ef)
+[2026-08-26T15:00:13.752729]     STOP-LOSS FAILED for AMT -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:13.776425]   buy AVGO: $1800.56 (order 4c271ec7-387d-46e1-9dc5-7735c6597715)
+[2026-08-26T15:00:15.845904]     STOP-LOSS FAILED for AVGO -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:15.874468]   buy AMD: $1926.39 (order 7e30539f-d959-4acc-a6a8-0d537308684b)
+[2026-08-26T15:00:17.943349]     STOP-LOSS FAILED for AMD -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:17.977238]   buy BA: $2505.74 (order 383b13c0-d4ab-42ea-bd1d-b5e320104844)
+[2026-08-26T15:00:20.043972]     STOP-LOSS FAILED for BA -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:20.064969]   buy CAT: $2321.18 (order 4810053b-4397-4df5-b54b-0ea88599047d)
+[2026-08-26T15:00:22.126360]     STOP-LOSS FAILED for CAT -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:22.155788]   buy COST: $4883.40 (order 5c4de987-3be4-4bb8-a453-39f439f869aa)
+[2026-08-26T15:00:24.215424]     STOP-LOSS FAILED for COST -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:24.242468]   buy CSCO: $2302.99 (order 5f9c4dd1-1f70-446f-a8a6-bf364a13cdc8)
+[2026-08-26T15:00:26.299889]     STOP-LOSS FAILED for CSCO -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:26.369037]   buy AAPL: $4450.75 (order 9f2feec9-6a3d-4547-b4f2-d367cd6ce6c3)
+[2026-08-26T15:00:28.449461]     STOP-LOSS FAILED for AAPL -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:28.471436]   buy HD: $3407.21 (order ce30a956-6b38-4174-9c64-29dcf2c7ef82)
+[2026-08-26T15:00:32.546674]     STOP-LOSS FAILED for HD -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:32.569414]   buy HON: $2968.47 (order e7ffa9d7-d222-4698-b423-5a05204ef982)
+[2026-08-26T15:00:34.634889]     STOP-LOSS FAILED for HON -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:34.657377]   buy JPM: $4594.63 (order aa5a6973-91e8-4c2b-ab2e-97b484e4571b)
+[2026-08-26T15:00:36.721584]     STOP-LOSS FAILED for JPM -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:36.745863]   buy KO: $3699.29 (order ed2b5673-e1a2-4be3-8cef-47e65c10c611)
+[2026-08-26T15:00:38.804596]     STOP-LOSS FAILED for KO -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:38.826582]   buy GOOGL: $2805.18 (order f7123def-2274-4e65-aeff-3a6051e15c24)
+[2026-08-26T15:00:40.887465]     STOP-LOSS FAILED for GOOGL -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:40.910808]   buy LIN: $3567.92 (order bfed813f-a1de-4101-9e3b-ffba4a1945b0)
+[2026-08-26T15:00:42.972943]     STOP-LOSS FAILED for LIN -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:43.006475]   buy PG: $4441.64 (order b36d11ac-f019-4e4a-828c-0b84b4270051)
+[2026-08-26T15:00:45.067934]     STOP-LOSS FAILED for PG -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:45.093318]   buy UNH: $3740.34 (order 22960e90-55cb-485c-9256-53b16297e28b)
+[2026-08-26T15:00:47.152415]     STOP-LOSS FAILED for UNH -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:47.182614]   buy META: $2228.36 (order 541ae26d-874b-47be-b525-b3237c29328b)
+[2026-08-26T15:00:49.243335]     STOP-LOSS FAILED for META -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:49.263909]   buy MSFT: $2500.43 (order 415b2ae2-b219-4178-a5a7-1b4e4483768d)
+[2026-08-26T15:00:51.322883]     STOP-LOSS FAILED for MSFT -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:51.350128]   buy NEE: $5428.66 (order 5bb17c11-a674-476a-a58c-06202efd3493)
+[2026-08-26T15:00:53.415243]     STOP-LOSS FAILED for NEE -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:53.444201]   buy V: $4859.58 (order c4b45ff0-5e69-4c2d-be58-8ad7b7cc1bc7)
+[2026-08-26T15:00:55.504418]     STOP-LOSS FAILED for V -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:55.527026]   buy WMT: $4382.55 (order 6de4521a-8407-47b4-ae2c-2969c0dce84c)
+[2026-08-26T15:00:57.590937]     STOP-LOSS FAILED for WMT -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:00:57.615342]   buy XOM: $3718.28 (order 9875c3b0-15cd-4b8e-a0cf-8055b04d232c)
+[2026-08-26T15:01:01.699071]     STOP-LOSS FAILED for XOM -- position is UNPROTECTED: {"code":42210000,"message":"fractional orders must be DAY orders"}
+[2026-08-26T15:01:01.699528] === Run complete ===
+[2026-08-26T16:32:51.299310] === Starting daily trading run [DRY RUN] ===
+[2026-08-26T16:32:54.439767] Generated targets using data through 2026-08-19 (28 tickers)
+[2026-08-26T16:32:54.756833] === Run complete ===
+[2026-08-26T16:33:50.940636] === Starting daily trading run [DRY RUN] ===
+[2026-08-26T16:33:54.058955] Generated targets using data through 2026-08-26 (28 tickers)
+[2026-08-26T16:33:54.356002]   [DRY RUN] would SELL AAPL: ~$1129.87
+[2026-08-26T16:33:54.685581]   [DRY RUN] would BUY JNJ: 14 shares @ ~$258.40 (~$3617.60), stop-loss target $245.48
+[2026-08-26T16:33:54.703162]   [DRY RUN] would BUY DIS: 33 shares @ ~$105.65 (~$3486.45), stop-loss target $100.37
+[2026-08-26T16:33:54.724419]   [DRY RUN] would BUY NVDA: 18 shares @ ~$223.13 (~$4016.34), stop-loss target $210.19
+[2026-08-26T16:33:54.725477]   [DRY RUN] would SELL WMT: ~$1699.60
+[2026-08-26T16:33:54.725982] === Run complete ===

@@ -22,8 +22,14 @@ FEATURE_COLS = [
     "return_1d", "return_5d", "return_20d",
     "price_vs_ma20", "rsi_14", "volatility_20d",
     "volume_ratio", "volume_change_1d",
-    "sentiment",
 ]
+# NOTE: sentiment deliberately excluded -- ablation test showed it
+# contributes essentially nothing (R^2 0.1919 without vs 0.1884 with,
+# MAE 0.006673 without vs 0.00669 with; without was marginally better on
+# both). Also would have required solving a GDELT-tone vs VADER-compound
+# scale mismatch for live trading (see live_sentiment.py docstring) for a
+# feature that isn't earning its complexity. See chat history for the full
+# GDELT sentiment build -- kept as a tested negative result, not deleted.
 
 
 def build_dataset(featured: pd.DataFrame) -> pd.DataFrame:
@@ -69,11 +75,10 @@ def train_model(train: pd.DataFrame) -> HistGradientBoostingRegressor:
 
 if __name__ == "__main__":
     from data import fetch_daily_bars
-    from features import add_features, add_sentiment
+    from features import add_features
 
     bars = fetch_daily_bars()
     featured = add_features(bars)
-    featured = add_sentiment(featured)
     dataset = build_dataset(featured)
 
     train, test = time_split(dataset)

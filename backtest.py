@@ -17,13 +17,15 @@ import pandas as pd
 
 from config import TICKERS
 from data import fetch_daily_bars
-from features import add_features, add_sentiment
+from features import add_features
 from model import FEATURE_COLS, build_dataset, train_model
 from rules import generate_signals
 
 INITIAL_CAPITAL = 100_000
 N_FOLDS = 4
-MAX_OPEN_POSITIONS = 10  # cap total concurrent positions, independent of per-position sizing
+MAX_OPEN_POSITIONS = len(TICKERS)  # mostly-invested design holds most/all of the basket by default
+SLIPPAGE_BPS = 5  # one-way cost estimate per trade; Alpaca is commission-free,
+                   # this represents realistic slippage on liquid large-caps
 
 
 def walk_forward_folds(df: pd.DataFrame, n_folds: int = N_FOLDS):
@@ -96,8 +98,9 @@ def simulate_portfolio(signals: pd.DataFrame, close_prices: pd.Series) -> pd.Dat
 
         def _close_position(symbol, price):
             nonlocal cash
-            cash += positions[symbol]["shares"] * price
-            trade_log.append(price / positions[symbol]["entry_price"] - 1)
+            exit_price = price * (1 - SLIPPAGE_BPS / 10_000)  # sell fills slightly below quote
+            cash += positions[symbol]["shares"] * exit_price
+            trade_log.append(exit_price / positions[symbol]["entry_price"] - 1)
             del positions[symbol]
 
         # 1. Check stop-losses on existing positions first.
@@ -140,11 +143,12 @@ def simulate_portfolio(signals: pd.DataFrame, close_prices: pd.Series) -> pd.Dat
             allocation = portfolio_value * day.loc[symbol, "position_size_pct"]
             if allocation > cash or allocation <= 0:
                 continue
-            shares = allocation / price
-            stop_loss_price = price * (1 - day.loc[symbol, "stop_loss_pct"])
+            entry_price = price * (1 + SLIPPAGE_BPS / 10_000)  # buy fills slightly above quote
+            shares = allocation / entry_price
+            stop_loss_price = entry_price * (1 - day.loc[symbol, "stop_loss_pct"])
             band = "OVER" if signal == "BUY" else "BASE"
             positions[symbol] = {
-                "shares": shares, "entry_price": price,
+                "shares": shares, "entry_price": entry_price,
                 "stop_loss_price": stop_loss_price, "band": band,
             }
             cash -= allocation
@@ -200,11 +204,45 @@ def benchmark_equal_weight(bars: pd.DataFrame, start_date, end_date) -> dict:
     }
 
 
+def single_period_backtest(dataset: pd.DataFrame, bars: pd.DataFrame, train_end: str, test_start: str, test_end: str, label: str):
+    """Train once on data up to train_end, test on a single fixed window.
+    Used to check whether the strategy's behavior generalizes beyond the
+    walk-forward test period -- specifically, whether the risk-management
+    tilting still helps (rather than just costing upside) in a down or
+    choppy market, since the main walk-forward period was a strong bull run.
+    """
+    train = dataset[dataset.index.get_level_values("timestamp") <= train_end]
+    test = dataset[
+        (dataset.index.get_level_values("timestamp") >= test_start)
+        & (dataset.index.get_level_values("timestamp") <= test_end)
+    ]
+    if len(test) == 0:
+        print(f"  {label}: no data in range, skipping")
+        return
+
+    model = train_model(train)
+    forecast = pd.Series(
+        model.predict(test[FEATURE_COLS]), index=test.index, name="forecast_volatility"
+    )
+    signals = generate_signals(test, forecast)
+    equity_curve, trade_log = simulate_portfolio(signals, bars["close"])
+    metrics = compute_metrics(equity_curve, trade_log)
+    bench = benchmark_equal_weight(bars, test_start, test_end)
+
+    print(f"\n=== {label} ===")
+    print(f"  Strategy:  return {metrics['total_return_pct']:.2f}%  "
+          f"sharpe {metrics['annualized_sharpe']:.2f}  "
+          f"max_dd {metrics['max_drawdown_pct']:.2f}%  "
+          f"trades {metrics['num_trades']}")
+    print(f"  Benchmark: return {bench['total_return_pct']:.2f}%  "
+          f"sharpe {bench['annualized_sharpe']:.2f}  "
+          f"max_dd {bench['max_drawdown_pct']:.2f}%")
+
+
 if __name__ == "__main__":
     print("Fetching data and building features...")
     bars = fetch_daily_bars()
     featured = add_features(bars)
-    featured = add_sentiment(featured)
     dataset = build_dataset(featured)
 
     print("\nRunning walk-forward folds...")
@@ -227,3 +265,9 @@ if __name__ == "__main__":
         print(f"  {k}: {v:.3f}")
 
     equity_curve.to_csv("backtest_equity_curve.csv")
+
+    single_period_backtest(
+        dataset, bars,
+        train_end="2021-12-31", test_start="2022-01-01", test_end="2022-12-31",
+        label="2022 DOWN-MARKET CHECK (train through 2021, test on 2022)",
+    )

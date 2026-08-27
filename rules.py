@@ -27,7 +27,7 @@ RSI_DIP = 40
 RSI_OVERBOUGHT = 70
 BASE_WEIGHT = 1.0 / len(TICKERS)
 OVERWEIGHT_MULTIPLIER = 1.5
-UNDERWEIGHT_MULTIPLIER = 0.3
+UNDERWEIGHT_MULTIPLIER = 0.3  # reverted -- softening to 0.6 didn't show a clear isolated benefit
 MAX_POSITION_PCT = 0.10          # cap per-position size regardless of weighting band
 STOP_LOSS_VOL_MULTIPLIER = 3.0   # stop-loss distance = N x forecast daily volatility
 BASE_STOP_LOSS_PCT = 0.05        # floor, in case forecast volatility is ~0
@@ -72,12 +72,11 @@ def generate_signals(featured: pd.DataFrame, forecast_volatility: pd.Series) -> 
 
 if __name__ == "__main__":
     from data import fetch_daily_bars
-    from features import add_features, add_sentiment
+    from features import add_features
     from model import FEATURE_COLS, build_dataset, time_split, train_model
 
     bars = fetch_daily_bars()
     featured = add_features(bars)
-    featured = add_sentiment(featured)
     dataset = build_dataset(featured)
 
     train, test = time_split(dataset)
