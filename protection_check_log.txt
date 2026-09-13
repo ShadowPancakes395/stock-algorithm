@@ -1,0 +1,23 @@
+[2026-09-03T15:19:32.117019] OK: all positions adequately protected.
+[2026-09-03T15:19:44.977887] !!! PROTECTION GAP DETECTED: 1 position(s) with >1 share unprotected !!!
+[2026-09-03T15:19:44.978195]   JPM: total=17.000 protected=0.000 gap=17.000
+[2026-09-03T15:19:44.978378] Manual intervention needed -- see backfill_stop_losses.py pattern in chat history for how to fix a specific symbol's gap.
+[2026-09-03T15:19:55.561744] OK: all positions adequately protected.
+[2026-09-04T15:08:41.124876] !!! PROTECTION GAP DETECTED: 1 position(s) with >1 share unprotected !!!
+[2026-09-04T15:08:41.125260]   JPM: total=12.143 protected=0.000 gap=12.143
+[2026-09-04T15:08:41.125370] Manual intervention needed -- see backfill_stop_losses.py pattern in chat history for how to fix a specific symbol's gap.
+[2026-09-04T19:17:01.926460] !!! PROTECTION GAP DETECTED: 1 position(s) with >1 share unprotected !!!
+[2026-09-04T19:17:01.926660]   JPM: total=12.143 protected=0.000 gap=12.143
+[2026-09-04T19:17:01.926763] Manual intervention needed -- see backfill_stop_losses.py pattern in chat history for how to fix a specific symbol's gap.
+[2026-09-04T19:17:14.121112] OK: all positions adequately protected.
+[2026-09-04T19:18:15.834698] OK: all positions adequately protected.
+[2026-09-05T15:00:05.560648] OK: all positions adequately protected.
+[2026-09-07T15:00:06.324083] OK: all positions adequately protected.
+[2026-09-08T15:00:18.233946] OK: all positions adequately protected.
+[2026-09-08T15:02:35.043088] OK: all positions adequately protected.
+[2026-09-09T15:13:26.193299] OK: all positions adequately protected.
+[2026-09-10T16:37:49.885855] OK: all positions adequately protected.
+[2026-09-10T17:39:57.257705] OK: all positions adequately protected.
+[2026-09-11T15:19:25.270156] OK: all positions adequately protected.
+[2026-09-11T15:32:29.533977] OK: all positions adequately protected.
+[2026-09-12T15:00:10.117342] OK: all positions adequately protected.

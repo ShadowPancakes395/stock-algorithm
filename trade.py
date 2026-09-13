@@ -26,8 +26,8 @@ from datetime import datetime
 
 import pandas as pd
 from alpaca.trading.client import TradingClient
-from alpaca.trading.requests import MarketOrderRequest, StopOrderRequest
-from alpaca.trading.enums import OrderSide, TimeInForce, OrderStatus
+from alpaca.trading.requests import MarketOrderRequest, StopOrderRequest, GetOrdersRequest
+from alpaca.trading.enums import OrderSide, TimeInForce, OrderStatus, QueryOrderStatus
 from alpaca.data.historical import StockHistoricalDataClient
 from alpaca.data.requests import StockLatestQuoteRequest
 from alpaca.data.enums import DataFeed
@@ -84,9 +84,33 @@ def get_todays_targets() -> pd.DataFrame:
 
 
 def get_current_positions(client: TradingClient) -> dict:
-    """Returns {symbol: market_value} for current Alpaca positions."""
+    """Returns {symbol: {"market_value": ..., "available_qty": ...}} for
+    current Alpaca positions. available_qty excludes shares already held
+    for pending orders (e.g. a GTC stop-loss) -- needed because SELLing
+    more than the unheld quantity gets rejected outright.
+    """
     positions = client.get_all_positions()
-    return {p.symbol: float(p.market_value) for p in positions}
+    return {
+        p.symbol: {
+            "market_value": float(p.market_value),
+            "available_qty": float(p.qty_available),
+        }
+        for p in positions
+    }
+
+
+def get_open_orders_by_symbol(client: TradingClient) -> dict:
+    """{symbol: order} for the current open (unfilled) order on each
+    symbol -- lets rebalance() cancel a symbol's stale stop-loss before
+    submitting a new order for that symbol, rather than skip the trade
+    entirely (see trade.py module docstring: skipping left the whole
+    portfolio "frozen" from further rebalancing within days of the first
+    real run, since nearly every symbol accumulates a standing GTC stop).
+    Assumes at most one open order per symbol, true by construction here
+    (rebalance() only ever creates one stop per position).
+    """
+    open_orders = client.get_orders(GetOrdersRequest(status=QueryOrderStatus.OPEN, limit=500))
+    return {o.symbol: o for o in open_orders}
 
 
 def rebalance(client: TradingClient, data_client: StockHistoricalDataClient, targets: pd.DataFrame,
@@ -111,18 +135,28 @@ def rebalance(client: TradingClient, data_client: StockHistoricalDataClient, tar
     submit_order -- lets the full pipeline (data, features, model, rules,
     diffing, sizing, margin guard) be exercised outside market hours
     without touching the account.
+
+    Symbols with an existing open order (a standing GTC stop-loss from a
+    prior BUY) have that order CANCELED before a new BUY/SELL is
+    submitted, then a fresh stop-loss is placed after the new order fills.
+    Earlier versions skipped these entirely, which -- given nearly every
+    symbol accumulates a stop within days of the first real run -- ended
+    up freezing the whole portfolio from further rebalancing. Canceling
+    and replacing keeps the position genuinely actively managed, matching
+    what was actually backtested.
     """
     account = client.get_account()
     portfolio_value = float(account.portfolio_value)
     current = get_current_positions(client)
-    committed = sum(current.values())  # running total, starts at current holdings
+    open_orders_by_symbol = get_open_orders_by_symbol(client)
+    committed = sum(p["market_value"] for p in current.values())  # running total, starts at current holdings
 
     for symbol, row in targets.iterrows():
         target_value = portfolio_value * row["position_size_pct"]
         if row["signal"] == "SELL" and symbol not in current:
             continue  # don't open fresh positions in overbought names
 
-        current_value = current.get(symbol, 0.0)
+        current_value = current.get(symbol, {}).get("market_value", 0.0)
         diff_value = target_value - current_value
 
         # Skip tiny rebalances -- not worth the trade cost for <1% of
@@ -131,6 +165,17 @@ def rebalance(client: TradingClient, data_client: StockHistoricalDataClient, tar
             continue
 
         side = OrderSide.BUY if diff_value > 0 else OrderSide.SELL
+
+        if symbol in open_orders_by_symbol:
+            if dry_run:
+                log(f"  [DRY RUN] would CANCEL existing stop-loss order on {symbol} before rebalancing")
+            else:
+                try:
+                    client.cancel_order_by_id(open_orders_by_symbol[symbol].id)
+                    log(f"  Canceled existing stop-loss on {symbol} to allow rebalance")
+                except Exception as e:
+                    log(f"  FAILED to cancel existing order on {symbol}, skipping rebalance for it: {e}")
+                    continue
 
         if side == OrderSide.BUY:
             quote = data_client.get_stock_latest_quote(
@@ -168,54 +213,161 @@ def rebalance(client: TradingClient, data_client: StockHistoricalDataClient, tar
             _place_stop_loss(client, order.id, symbol, row["stop_loss_pct"])
 
         else:
-            notional = abs(diff_value)
-            committed -= min(notional, current_value)
+            # available_qty may be stale immediately after a cancel (the
+            # freed shares can take a moment to reflect) -- re-fetch this
+            # symbol's position fresh rather than trust the pre-cancel snapshot.
+            fresh = client.get_all_positions()
+            fresh_available = next((float(p.qty_available) for p in fresh if p.symbol == symbol), 0.0)
+
+            if fresh_available <= 0:
+                log(f"  SKIPPED SELL {symbol}: no available (unheld) shares to sell even after cancel.")
+                continue
+
+            quote = data_client.get_stock_latest_quote(
+                StockLatestQuoteRequest(symbol_or_symbols=symbol, feed=DataFeed.IEX)
+            )[symbol]
+            price = float(quote.bid_price) if quote.bid_price else float(quote.ask_price)
+            desired_qty = abs(diff_value) / price
+            sell_qty = min(desired_qty, fresh_available)
+            notional_value = sell_qty * price
+            committed -= min(notional_value, current_value)
 
             if dry_run:
-                log(f"  [DRY RUN] would SELL {symbol}: ~${notional:.2f}")
+                log(f"  [DRY RUN] would SELL {symbol}: {sell_qty:.4f} shares (~${notional_value:.2f})")
                 continue
 
             try:
                 order = client.submit_order(MarketOrderRequest(
-                    symbol=symbol, notional=round(notional, 2),
+                    symbol=symbol, qty=round(sell_qty, 4),
                     side=side, time_in_force=TimeInForce.DAY,
                 ))
-                log(f"  SELL {symbol}: ${notional:.2f} (order {order.id})")
+                log(f"  SELL {symbol}: {sell_qty:.4f} shares (~${notional_value:.2f}, order {order.id})")
             except Exception as e:
                 log(f"  FAILED SELL {symbol}: {e}")
+                continue
+
+            # Re-protect whatever's left of the position with a fresh stop.
+            # BUG FIX #1: previously computed remaining_qty as
+            # (fresh_available - sell_qty), i.e. remaining AVAILABLE qty --
+            # but fresh_available was already just the unheld sliver before
+            # this sell (the bulk of the position was locked under the
+            # just-canceled stop). That silently skipped re-protecting the
+            # bulk of the position whenever a sell only touched a small
+            # unheld remainder. Caught live: JPM held ~17 shares, a sell of
+            # 0.87 unheld shares left "remaining_qty=0" by the old logic,
+            # so no stop was re-placed and all 17 shares sat unprotected.
+            # BUG FIX #2: the first fix used a flat time.sleep(2) before
+            # reading position qty, assuming the sell would have settled by
+            # then. Caught live again the next day: the sleep wasn't long
+            # enough, the stop submission read a qty that still included
+            # shares held_for_orders from the just-filled sell, and Alpaca
+            # rejected the stop for requesting more than was available --
+            # leaving the position unprotected a second time via a
+            # different path than bug #1. Fix: poll get_order_by_id for
+            # this order to reach FILLED, same pattern _place_stop_loss
+            # already uses for the BUY side, instead of guessing a sleep
+            # duration.
+            filled = _wait_for_fill(client, order.id)
+            if not filled:
+                log(f"    WARNING: {symbol} SELL order {order.id} did not confirm filled -- "
+                    f"skipping stop re-placement, check manually.")
+                continue
+
+            post_sell = client.get_all_positions()
+            remaining_qty = next((float(p.qty) for p in post_sell if p.symbol == symbol), 0.0)
+
+            if remaining_qty > 0:
+                whole_remaining = int(remaining_qty)
+                if whole_remaining >= 1:
+                    stop_price = round(price * (1 - row["stop_loss_pct"]), 2)
+                    try:
+                        client.submit_order(StopOrderRequest(
+                            symbol=symbol, qty=whole_remaining, side=OrderSide.SELL,
+                            time_in_force=TimeInForce.GTC, stop_price=stop_price,
+                        ))
+                        log(f"    re-placed stop-loss for {symbol}: {whole_remaining} shares "
+                            f"(full remaining position) @ ${stop_price:.2f}")
+                    except Exception as e:
+                        log(f"    FAILED to re-place stop-loss for {symbol} -- remaining position "
+                            f"is UNPROTECTED: {e}")
 
 
-def _place_stop_loss(client: TradingClient, order_id: str, symbol: str, stop_loss_pct: float,
-                      poll_interval_s: float = 2.0, max_wait_s: float = 30.0):
-    """Poll the just-submitted BUY order until it fills, then place a stop
-    order at (fill_price * (1 - stop_loss_pct)) for the filled quantity.
-
-    Market orders fill almost immediately during market hours, so this
-    poll is normally 1-3 iterations. If it doesn't fill within max_wait_s,
-    logs a clear warning rather than silently skipping the stop-loss --
-    an unprotected position should be loud, not silent.
+def _wait_for_fill(client: TradingClient, order_id: str,
+                    poll_interval_s: float = 2.0, max_wait_s: float = 30.0) -> bool:
+    """Poll an order until it reaches FILLED status, or return False after
+    max_wait_s. Shared by _place_stop_loss (BUY side) and rebalance's SELL
+    branch -- both need to know an order has genuinely settled before
+    trusting a subsequent position-quantity read, not just guess a sleep
+    duration (see rebalance() SELL branch docstring for why a fixed sleep
+    wasn't reliable).
     """
     elapsed = 0.0
     while elapsed < max_wait_s:
         order = client.get_order_by_id(order_id)
         if order.status == OrderStatus.FILLED:
-            fill_price = float(order.filled_avg_price)
-            qty = float(order.filled_qty)
-            stop_price = round(fill_price * (1 - stop_loss_pct), 2)
-            try:
-                client.submit_order(StopOrderRequest(
-                    symbol=symbol, qty=qty, side=OrderSide.SELL,
-                    time_in_force=TimeInForce.GTC, stop_price=stop_price,
-                ))
-                log(f"    stop-loss placed for {symbol}: {qty} shares @ ${stop_price:.2f}")
-            except Exception as e:
-                log(f"    STOP-LOSS FAILED for {symbol} -- position is UNPROTECTED: {e}")
-            return
+            return True
         time.sleep(poll_interval_s)
         elapsed += poll_interval_s
+    return False
 
-    log(f"    WARNING: {symbol} BUY order {order_id} did not fill within "
-        f"{max_wait_s}s -- no stop-loss placed, check manually.")
+
+def _place_stop_loss(client: TradingClient, order_id: str, symbol: str, stop_loss_pct: float):
+    """Wait for the just-submitted BUY order to fill, then place a stop
+    order sized to the symbol's TOTAL current position, not just this
+    order's filled_qty.
+
+    BUG FIX: when a symbol already held shares (e.g. its prior stop-loss
+    was just canceled to allow this BUY -- see rebalance()), sizing the
+    new stop to only the newly-filled quantity left the pre-existing
+    shares completely unprotected. Caught live: LIN held 9.28 shares but
+    the stop only covered the 2 just bought, after a cancel-and-rebuy.
+    Fix: query the account's actual current qty for this symbol after
+    the fill, and protect that whole amount.
+
+    Market orders fill almost immediately during market hours, so this
+    poll is normally 1-3 iterations. If it doesn't fill within max_wait_s,
+    logs a clear warning rather than silently skipping the stop-loss --
+    an unprotected position should be loud, not silent.
+
+    qty is floored to a whole share: Alpaca's paper engine can report a
+    fractional total qty (this is exactly how the original notional-order
+    bug produced fractional positions, and legacy fractional remainders
+    can persist). A fractional qty would hit the same "fractional orders
+    must be DAY orders" rejection GTC stops already failed on once --
+    flooring keeps the GTC stop valid; any fractional remainder is
+    logged, not silently dropped.
+    """
+    if not _wait_for_fill(client, order_id):
+        log(f"    WARNING: {symbol} BUY order {order_id} did not fill in time -- "
+            f"no stop-loss placed, check manually.")
+        return
+
+    order = client.get_order_by_id(order_id)
+    fill_price = float(order.filled_avg_price)
+
+    # Total current position, not just this order's filled_qty --
+    # covers the case where the symbol already held shares.
+    positions = client.get_all_positions()
+    total_qty = next((float(p.qty) for p in positions if p.symbol == symbol), float(order.filled_qty))
+
+    qty = int(total_qty)  # floor to whole shares -- GTC requirement
+    remainder = total_qty - qty
+    if remainder > 0:
+        log(f"    NOTE: {symbol} total position {total_qty} shares (fractional) -- "
+            f"stop-loss covers {qty} whole shares, {remainder:.6f} remainder is UNPROTECTED.")
+    if qty < 1:
+        log(f"    STOP-LOSS SKIPPED for {symbol}: total qty {total_qty} is entirely "
+            f"fractional -- position is UNPROTECTED.")
+        return
+    stop_price = round(fill_price * (1 - stop_loss_pct), 2)
+    try:
+        client.submit_order(StopOrderRequest(
+            symbol=symbol, qty=qty, side=OrderSide.SELL,
+            time_in_force=TimeInForce.GTC, stop_price=stop_price,
+        ))
+        log(f"    stop-loss placed for {symbol}: {qty} shares (full position) @ ${stop_price:.2f}")
+    except Exception as e:
+        log(f"    STOP-LOSS FAILED for {symbol} -- position is UNPROTECTED: {e}")
 
 
 if __name__ == "__main__":

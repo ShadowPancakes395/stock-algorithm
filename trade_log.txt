@@ -56,3 +56,204 @@
 [2026-08-26T16:33:54.724419]   [DRY RUN] would BUY NVDA: 18 shares @ ~$223.13 (~$4016.34), stop-loss target $210.19
 [2026-08-26T16:33:54.725477]   [DRY RUN] would SELL WMT: ~$1699.60
 [2026-08-26T16:33:54.725982] === Run complete ===
+[2026-08-27T15:32:57.893816] === Starting daily trading run ===
+[2026-08-27T15:33:02.807988] Generated targets using data through 2026-08-27 (28 tickers)
+[2026-08-27T15:33:03.274112]   FAILED BUY CAT: {"code":40310000,"existing_order_id":"fd847389-4591-4f80-83fe-3ab762d4b0c8","message":"potential wash trade detected. use complex orders","reject_reason":"opposite side market/stop order exists"}
+[2026-08-27T15:33:03.296202]   FAILED SELL AAPL: {"available":"0.152696514","code":40310000,"existing_qty":"14.152696514","held_for_orders":"14","message":"insufficient qty available for order (requested: 3.537401951, available: 0.152696514)","related_orders":["f76428eb-e7e9-4819-b476-a494a0897f88"],"symbol":"AAPL"}
+[2026-08-27T15:33:03.342653]   BUY DIS: 32 shares (~$3431.68, order 27deaf19-04a2-48bf-8bbd-25ffaffb9318)
+[2026-08-27T15:33:05.412794]     stop-loss placed for DIS: 32.0 shares @ $101.86
+[2026-08-27T15:33:05.474319]   BUY JNJ: 16 shares (~$4255.68, order d3e9194e-3f53-4c6e-b1ce-d1d19cfd8561)
+[2026-08-27T15:33:07.553589]     stop-loss placed for JNJ: 16.0 shares @ $252.54
+[2026-08-27T15:33:07.591104]   FAILED BUY KO: {"code":40310000,"existing_order_id":"c81af437-3fb9-45f3-9b9f-9bcdee78000b","message":"potential wash trade detected. use complex orders","reject_reason":"opposite side market/stop order exists"}
+[2026-08-27T15:33:07.650478]   BUY NVDA: 10 shares (~$2281.80, order 591259dc-3467-4004-85a5-3be5ea9044f3)
+[2026-08-27T15:33:09.741932]     stop-loss placed for NVDA: 10.0 shares @ $211.61
+[2026-08-27T15:33:09.785129]   BUY PFE: 139 shares (~$3886.44, order 3099ce4d-f5e0-47ae-99d2-ea4132ce8b90)
+[2026-08-27T15:33:11.864229]     stop-loss placed for PFE: 139.0 shares @ $26.56
+[2026-08-27T15:33:11.900850]   FAILED BUY META: {"code":40310000,"existing_order_id":"98a70386-c10f-42a9-a072-59f729ff4b5a","message":"potential wash trade detected. use complex orders","reject_reason":"opposite side market/stop order exists"}
+[2026-08-27T15:33:11.925587]   FAILED SELL WMT: {"available":"0.892372395","code":40310000,"existing_qty":"41.892372395","held_for_orders":"41","message":"insufficient qty available for order (requested: 11.372063553, available: 0.892372395)","related_orders":["ee7c8a2a-73cf-4909-b32b-00fb69ed9fa2"],"symbol":"WMT"}
+[2026-08-27T15:33:11.926238] === Run complete ===
+[2026-08-27T15:53:03.928762] === Starting daily trading run [DRY RUN] ===
+[2026-08-27T15:53:07.425680] Generated targets using data through 2026-08-27 (28 tickers)
+[2026-08-27T15:53:07.720210]   SKIPPED BUY AVGO: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-27T15:53:07.720634]   SKIPPED BUY CAT: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-27T15:53:07.720870]   SKIPPED SELL AAPL: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-27T15:53:07.721079]   SKIPPED BUY KO: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-27T15:53:07.721423]   SKIPPED SELL WMT: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-27T15:53:07.721585] === Run complete ===
+[2026-08-27T15:56:04.138751] === Starting daily trading run [DRY RUN] ===
+[2026-08-27T15:56:07.957681] Generated targets using data through 2026-08-27 (28 tickers)
+[2026-08-27T15:56:08.322229]   SKIPPED SELL AAPL: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-27T15:56:08.322777]   SKIPPED BUY CAT: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-27T15:56:08.323007]   SKIPPED BUY KO: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-27T15:56:08.323429]   SKIPPED SELL WMT: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-27T15:56:08.323573] === Run complete ===
+[2026-08-27T15:56:54.387602] === Starting daily trading run ===
+[2026-08-27T15:56:58.020115] Generated targets using data through 2026-08-27 (28 tickers)
+[2026-08-27T15:56:58.085703]   SKIPPED SELL AAPL: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-27T15:56:58.086317]   SKIPPED BUY CAT: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-27T15:56:58.086612]   SKIPPED BUY KO: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-27T15:56:58.086991]   SKIPPED SELL WMT: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-27T15:56:58.087134] === Run complete ===
+[2026-08-29T15:27:15.117985] === Starting daily trading run ===
+[2026-08-29T15:27:15.501118] Market is closed (next open: 2026-08-31 09:30:00-04:00). Exiting without trading.
+[2026-08-30T15:00:03.692908] === Starting daily trading run ===
+[2026-08-30T15:00:03.948862] Market is closed (next open: 2026-08-31 09:30:00-04:00). Exiting without trading.
+[2026-08-31T15:00:04.196709] === Starting daily trading run ===
+[2026-08-31T15:00:09.373528] Generated targets using data through 2026-08-31 (28 tickers)
+[2026-08-31T15:00:09.482603]   SKIPPED BUY BA: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-31T15:00:09.483326]   SKIPPED SELL COST: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-31T15:00:09.483859]   SKIPPED BUY JPM: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-31T15:00:09.484183]   SKIPPED BUY MSFT: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-31T15:00:09.484583]   SKIPPED SELL NEE: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-31T15:00:09.484930]   SKIPPED SELL PFE: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-31T15:00:09.485289]   SKIPPED SELL WMT: existing open order on this symbol (likely a pending GTC stop-loss) -- would be rejected as a wash trade.
+[2026-08-31T15:00:09.485553] === Run complete ===
+[2026-08-31T15:37:40.821225] === Starting daily trading run [DRY RUN] ===
+[2026-08-31T15:37:44.416619] Generated targets using data through 2026-08-31 (28 tickers)
+[2026-08-31T15:37:44.701735]   [DRY RUN] would CANCEL existing stop-loss order on MSFT before rebalancing
+[2026-08-31T15:37:44.907901]   [DRY RUN] would BUY MSFT: 2 shares @ ~$509.88 (~$1019.76), stop-loss target $484.39
+[2026-08-31T15:37:44.908448]   [DRY RUN] would CANCEL existing stop-loss order on PFE before rebalancing
+[2026-08-31T15:37:44.933228]   SKIPPED SELL PFE: no available (unheld) shares to sell even after cancel.
+[2026-08-31T15:37:44.933739]   [DRY RUN] would CANCEL existing stop-loss order on WMT before rebalancing
+[2026-08-31T15:37:44.969604]   [DRY RUN] would SELL WMT: 0.8924 shares (~$93.63)
+[2026-08-31T15:37:44.969935] === Run complete ===
+[2026-08-31T15:38:31.263075] === Starting daily trading run ===
+[2026-08-31T15:38:34.805283] Generated targets using data through 2026-08-31 (28 tickers)
+[2026-08-31T15:38:34.886201]   Canceled existing stop-loss on LIN to allow rebalance
+[2026-08-31T15:38:35.115218]   BUY LIN: 2 shares (~$1030.24, order be1a0f32-89ec-4c59-9039-268e555207e8)
+[2026-08-31T15:38:37.171702]     stop-loss placed for LIN: 2 shares @ $464.88
+[2026-08-31T15:38:37.188862]   Canceled existing stop-loss on META to allow rebalance
+[2026-08-31T15:38:37.232969]   BUY META: 1 shares (~$572.61, order 413798ab-f67f-4e06-b434-bb004b5a5b42)
+[2026-08-31T15:38:39.289088]     stop-loss placed for META: 1 shares @ $543.91
+[2026-08-31T15:38:39.306406]   Canceled existing stop-loss on MSFT to allow rebalance
+[2026-08-31T15:38:39.353939]   BUY MSFT: 2 shares (~$1019.72, order babd38f2-ac48-4203-97db-3d5b98569ba0)
+[2026-08-31T15:38:41.413180]     stop-loss placed for MSFT: 2 shares @ $484.37
+[2026-08-31T15:38:41.431120]   Canceled existing stop-loss on PFE to allow rebalance
+[2026-08-31T15:38:41.525954]   SELL PFE: 105.1191 shares (~$3013.77, order 16bdc840-1f71-431b-adca-85485d901ed4)
+[2026-08-31T15:38:41.546394]     re-placed stop-loss for PFE: 33 shares @ $27.24
+[2026-08-31T15:38:41.564399]   Canceled existing stop-loss on WMT to allow rebalance
+[2026-08-31T15:38:41.620075]   SELL WMT: 18.0310 shares (~$1891.81, order ce7568d4-1029-474a-8aea-d68f0aeba5d6)
+[2026-08-31T15:38:41.638297]     re-placed stop-loss for WMT: 23 shares @ $98.97
+[2026-08-31T15:38:41.638933] === Run complete ===
+[2026-09-01T15:00:08.701736] === Starting daily trading run ===
+[2026-09-01T15:00:14.307709] Generated targets using data through 2026-09-01 (28 tickers)
+[2026-09-01T15:00:14.465133]   Canceled existing stop-loss on AAPL to allow rebalance
+[2026-09-01T15:00:14.847711]   SELL AAPL: 10.6610 shares (~$3472.39, order ea836f97-b966-4af9-8597-3f315a87af85)
+[2026-09-01T15:00:14.880234]     re-placed stop-loss for AAPL: 3 shares @ $309.42
+[2026-09-01T15:00:14.900679]   Canceled existing stop-loss on COST to allow rebalance
+[2026-09-01T15:00:14.961146]   SELL COST: 1.1033 shares (~$1034.49, order 53d5a792-8da9-4167-96a1-7b1616226af1)
+[2026-09-01T15:00:14.981651]     re-placed stop-loss for COST: 3 shares @ $890.75
+[2026-09-01T15:00:15.000821]   Canceled existing stop-loss on HON to allow rebalance
+[2026-09-01T15:00:15.042809]   BUY HON: 13 shares (~$2726.36, order a2c7ffe7-8b58-4186-a780-aa408d7b5ece)
+[2026-09-01T15:00:19.153915]     stop-loss placed for HON: 13 shares (full position) @ $198.39
+[2026-09-01T15:00:19.171516]   Canceled existing stop-loss on JPM to allow rebalance
+[2026-09-01T15:00:19.232053]   BUY JPM: 5 shares (~$1777.45, order 88dd360c-8095-44cc-85e1-1280e9f11bab)
+[2026-09-01T15:00:21.310582]     NOTE: JPM total position 17.871165644 shares (fractional) -- stop-loss covers 17 whole shares, 0.871166 remainder is UNPROTECTED.
+[2026-09-01T15:00:21.332993]     stop-loss placed for JPM: 17 shares (full position) @ $337.69
+[2026-09-01T15:00:21.334090] === Run complete ===
+[2026-09-02T15:00:04.125697] === Starting daily trading run ===
+[2026-09-02T15:00:10.476367] Generated targets using data through 2026-09-02 (28 tickers)
+[2026-09-02T15:00:10.605799]   Canceled existing stop-loss on HON to allow rebalance
+[2026-09-02T15:00:11.010547]   SELL HON: 15.3110 shares (~$2985.65, order 47ff2a0f-7a32-4582-befb-81b5f2142d27)
+[2026-09-02T15:00:11.031461]     re-placed stop-loss for HON: 11 shares @ $183.85
+[2026-09-02T15:00:11.074665]   BUY HD: 9 shares (~$2870.37, order d00e5c38-2ca1-4203-9e73-dbb6a8455e9a)
+[2026-09-02T15:00:13.142749]     NOTE: HD total position 9.155285982 shares (fractional) -- stop-loss covers 9 whole shares, 0.155286 remainder is UNPROTECTED.
+[2026-09-02T15:00:13.168179]     stop-loss placed for HD: 9 shares (full position) @ $302.95
+[2026-09-02T15:00:13.184583]   Canceled existing stop-loss on V to allow rebalance
+[2026-09-02T15:00:13.255857]   SELL V: 2.9989 shares (~$1062.65, order a8c10d18-f08e-481a-a1ad-d63b2f237d94)
+[2026-09-02T15:00:13.274889]     re-placed stop-loss for V: 9 shares @ $336.63
+[2026-09-02T15:00:13.275310] === Run complete ===
+[2026-09-03T15:00:09.686442] === Starting daily trading run ===
+[2026-09-03T15:00:16.542513] Generated targets using data through 2026-09-03 (28 tickers)
+[2026-09-03T15:00:16.702809]   Canceled existing stop-loss on BA to allow rebalance
+[2026-09-03T15:00:17.173404]   BUY BA: 6 shares (~$1262.58, order 37db8ab2-7147-4346-a525-502110e59220)
+[2026-09-03T15:00:19.229014]     NOTE: BA total position 17.822827215 shares (fractional) -- stop-loss covers 17 whole shares, 0.822827 remainder is UNPROTECTED.
+[2026-09-03T15:00:19.249742]     stop-loss placed for BA: 17 shares (full position) @ $199.89
+[2026-09-03T15:00:19.272144]   Canceled existing stop-loss on JPM to allow rebalance
+[2026-09-03T15:00:19.331593]   SELL JPM: 0.8712 shares (~$311.62, order 707f53f8-95fa-4093-ae46-df1befc2bf30)
+[2026-09-03T15:00:19.332491] === Run complete ===
+[2026-09-03T15:08:44.073896] === Starting daily trading run [DRY RUN] ===
+[2026-09-03T15:08:47.644044] Generated targets using data through 2026-09-03 (28 tickers)
+[2026-09-03T15:08:47.905070]   [DRY RUN] would CANCEL existing stop-loss order on JPM before rebalancing
+[2026-09-03T15:08:48.121530]   [DRY RUN] would SELL JPM: 1.0000 shares (~$357.70)
+[2026-09-03T15:08:48.122250] === Run complete ===
+[2026-09-04T15:08:23.669019] === Starting daily trading run ===
+[2026-09-04T15:08:29.125720] Generated targets using data through 2026-09-04 (28 tickers)
+[2026-09-04T15:08:29.275577]   Canceled existing stop-loss on AAPL to allow rebalance
+[2026-09-04T15:08:29.592964]   BUY AAPL: 7 shares (~$2253.93, order b0232263-623e-49d8-9cd8-ea0235da943a)
+[2026-09-04T15:08:31.664096]     NOTE: AAPL total position 10.491696514 shares (fractional) -- stop-loss covers 10 whole shares, 0.491697 remainder is UNPROTECTED.
+[2026-09-04T15:08:31.685423]     stop-loss placed for AAPL: 10 shares (full position) @ $305.65
+[2026-09-04T15:08:31.702904]   Canceled existing stop-loss on JPM to allow rebalance
+[2026-09-04T15:08:31.759839]   SELL JPM: 4.8567 shares (~$1724.36, order 9aaea270-f020-48ed-bda4-2d4a006bb74c)
+[2026-09-04T15:08:33.830425]     FAILED to re-place stop-loss for JPM -- remaining position is UNPROTECTED: {"available":"12.143265644","code":40310000,"existing_qty":"13.999965644","held_for_orders":"1.8567","message":"insufficient qty available for order (requested: 13, available: 12.143265644)","related_orders":["9aaea270-f020-48ed-bda4-2d4a006bb74c"],"symbol":"JPM"}
+[2026-09-04T15:08:33.874166]   BUY T: 161 shares (~$4153.80, order 303c756d-e060-4ce5-85b7-2677a5b28821)
+[2026-09-04T15:08:35.980132]     stop-loss placed for T: 161 shares (full position) @ $24.51
+[2026-09-04T15:08:35.999532]   Canceled existing stop-loss on PFE to allow rebalance
+[2026-09-04T15:08:36.036243]   BUY PFE: 87 shares (~$2478.63, order ea5315cd-04d1-4570-bc6d-c6e6ccec9e4d)
+[2026-09-04T15:08:38.096017]     NOTE: PFE total position 120.8809 shares (fractional) -- stop-loss covers 120 whole shares, 0.880900 remainder is UNPROTECTED.
+[2026-09-04T15:08:38.148066]     stop-loss placed for PFE: 120 shares (full position) @ $27.07
+[2026-09-04T15:08:38.148701] === Run complete ===
+[2026-09-04T19:18:06.930928] === Starting daily trading run [DRY RUN] ===
+[2026-09-04T19:18:10.492322] Generated targets using data through 2026-09-04 (28 tickers)
+[2026-09-04T19:18:11.031267]   [DRY RUN] would BUY VZ: 90 shares @ ~$47.78 (~$4300.20), stop-loss target $45.39
+[2026-09-04T19:18:11.031751] === Run complete ===
+[2026-09-05T15:00:03.274697] === Starting daily trading run ===
+[2026-09-05T15:00:03.508422] Market is closed (next open: 2026-09-08 09:30:00-04:00). Exiting without trading.
+[2026-09-07T15:00:03.561181] === Starting daily trading run ===
+[2026-09-07T15:00:03.813106] Market is closed (next open: 2026-09-08 09:30:00-04:00). Exiting without trading.
+[2026-09-08T15:00:03.598511] === Starting daily trading run ===
+[2026-09-08T15:00:09.248650] Generated targets using data through 2026-09-08 (28 tickers)
+[2026-09-08T15:00:09.423326]   Canceled existing stop-loss on JPM to allow rebalance
+[2026-09-08T15:00:09.706935]   BUY JPM: 7 shares (~$2482.20, order 2941d9ba-2544-4ab4-b89f-a49124dc9123)
+[2026-09-08T15:00:11.805943]     NOTE: JPM total position 19.143265644 shares (fractional) -- stop-loss covers 19 whole shares, 0.143266 remainder is UNPROTECTED.
+[2026-09-08T15:00:11.861805]     stop-loss placed for JPM: 19 shares (full position) @ $336.82
+[2026-09-08T15:00:11.880940]   Canceled existing stop-loss on META to allow rebalance
+[2026-09-08T15:00:12.042527]   SELL META: 0.8500 shares (~$526.54, order 734ad077-483a-4bd9-baf3-cb0271272ce6)
+[2026-09-08T15:00:12.110334]     re-placed stop-loss for META: 4 shares (full remaining position) @ $586.76
+[2026-09-08T15:00:12.156437]   BUY VZ: 91 shares (~$4587.31, order c3e4a09e-aa44-484d-b135-f60e0da20a11)
+[2026-09-08T15:00:14.262493]     stop-loss placed for VZ: 91 shares (full position) @ $47.89
+[2026-09-08T15:00:14.263411] === Run complete ===
+[2026-09-09T15:13:02.150067] === Starting daily trading run ===
+[2026-09-09T15:13:08.104138] Generated targets using data through 2026-09-09 (28 tickers)
+[2026-09-09T15:13:08.237878]   Canceled existing stop-loss on HON to allow rebalance
+[2026-09-09T15:13:08.566808]   BUY HON: 5 shares (~$1028.55, order 22163e64-8d04-4243-92f3-347f13abe6a8)
+[2026-09-09T15:13:12.831497]     NOTE: HON total position 16.150402474 shares (fractional) -- stop-loss covers 16 whole shares, 0.150402 remainder is UNPROTECTED.
+[2026-09-09T15:13:12.854962]     stop-loss placed for HON: 16 shares (full position) @ $195.42
+[2026-09-09T15:13:12.878402]   Canceled existing stop-loss on JPM to allow rebalance
+[2026-09-09T15:13:12.964897]   SELL JPM: 7.8710 shares (~$2624.59, order ae2ad7fe-dcb1-49e7-8f1e-02939bb9210e)
+[2026-09-09T15:13:15.071799]     re-placed stop-loss for JPM: 11 shares (full remaining position) @ $316.78
+[2026-09-09T15:13:15.091835]   Canceled existing stop-loss on KO to allow rebalance
+[2026-09-09T15:13:15.129210]   BUY KO: 36 shares (~$3161.88, order b865807b-98f6-4592-a3e5-c8ae29869405)
+[2026-09-09T15:13:17.207861]     NOTE: KO total position 76.975631369 shares (fractional) -- stop-loss covers 76 whole shares, 0.975631 remainder is UNPROTECTED.
+[2026-09-09T15:13:17.242634]     stop-loss placed for KO: 76 shares (full position) @ $83.44
+[2026-09-09T15:13:17.285289]   BUY LIN: 8 shares (~$3731.44, order d213a8c7-2bd6-40d3-aae7-ce86ab4f50b6)
+[2026-09-09T15:13:19.359528]     NOTE: LIN total position 8.275658149 shares (fractional) -- stop-loss covers 8 whole shares, 0.275658 remainder is UNPROTECTED.
+[2026-09-09T15:13:19.392694]     stop-loss placed for LIN: 8 shares (full position) @ $442.66
+[2026-09-09T15:13:19.416158]   Canceled existing stop-loss on META to allow rebalance
+[2026-09-09T15:13:19.485279]   SELL META: 3.0125 shares (~$1971.47, order cd53baea-4356-406d-b7fa-132aa7ebcd0d)
+[2026-09-09T15:13:21.592374]   BUY UNH: 8 shares (~$3149.76, order 55cd53a7-00f7-41f3-b01f-602059422bf7)
+[2026-09-09T15:13:23.674471]     NOTE: UNH total position 8.294823687 shares (fractional) -- stop-loss covers 8 whole shares, 0.294824 remainder is UNPROTECTED.
+[2026-09-09T15:13:23.694235]     stop-loss placed for UNH: 8 shares (full position) @ $374.03
+[2026-09-09T15:13:23.695188] === Run complete ===
+[2026-09-10T16:37:47.287809] === Starting daily trading run ===
+[2026-09-10T16:37:47.633252] Market is closed (next open: 2026-09-11 09:30:00-04:00). Exiting without trading.
+[2026-09-11T15:19:09.276627] === Starting daily trading run ===
+[2026-09-11T15:19:13.886920] Generated targets using data through 2026-09-11 (28 tickers)
+[2026-09-11T15:19:14.072436]   Canceled existing stop-loss on AVGO to allow rebalance
+[2026-09-11T15:19:14.421267]   BUY AVGO: 2 shares (~$728.00, order 9e294d8f-3e2f-4463-9e5f-77c968a49187)
+[2026-09-11T15:19:16.515917]     NOTE: AVGO total position 7.083283927 shares (fractional) -- stop-loss covers 7 whole shares, 0.083284 remainder is UNPROTECTED.
+[2026-09-11T15:19:16.534547]     stop-loss placed for AVGO: 7 shares (full position) @ $345.43
+[2026-09-11T15:19:16.551482]   Canceled existing stop-loss on CSCO to allow rebalance
+[2026-09-11T15:19:16.614719]   BUY CSCO: 12 shares (~$1338.00, order f69f5186-f4ee-4f79-ad82-46ea28368338)
+[2026-09-11T15:19:18.697178]     NOTE: CSCO total position 32.460021321 shares (fractional) -- stop-loss covers 32 whole shares, 0.460021 remainder is UNPROTECTED.
+[2026-09-11T15:19:18.732401]     stop-loss placed for CSCO: 32 shares (full position) @ $105.92
+[2026-09-11T15:19:18.750891]   Canceled existing stop-loss on AAPL to allow rebalance
+[2026-09-11T15:19:18.809342]   SELL AAPL: 7.5319 shares (~$2506.17, order d027c750-bc0f-4704-a7f5-e221ad1abe83)
+[2026-09-11T15:19:20.891949]     re-placed stop-loss for AAPL: 2 shares (full remaining position) @ $316.10
+[2026-09-11T15:19:20.911239]   Canceled existing stop-loss on GOOGL to allow rebalance
+[2026-09-11T15:19:20.993920]   BUY GOOGL: 3 shares (~$1017.69, order ab272a0b-7003-4304-a4c8-9d87bd676e37)
+[2026-09-11T15:19:23.065822]     NOTE: GOOGL total position 11.208732039 shares (fractional) -- stop-loss covers 11 whole shares, 0.208732 remainder is UNPROTECTED.
+[2026-09-11T15:19:23.091285]     stop-loss placed for GOOGL: 11 shares (full position) @ $322.11
+[2026-09-11T15:19:23.091914] === Run complete ===
+[2026-09-12T15:00:05.495147] === Starting daily trading run ===
+[2026-09-12T15:00:05.979390] Market is closed (next open: 2026-09-14 09:30:00-04:00). Exiting without trading.
