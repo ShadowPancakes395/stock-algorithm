@@ -1,0 +1,8 @@
+﻿2026-08-27 19:33:12.052457+00:00 buy market qty= 139 status= filled id= 3099ce4d
+2026-08-27 19:33:14.120322+00:00 sell stop qty= 139 status= canceled id= 18c311a7
+2026-08-31 19:38:42.687451+00:00 sell market qty= 105.1191 status= filled id= 16bdc840
+2026-08-31 19:38:42.706869+00:00 sell stop qty= 33 status= canceled id= 7b6ba2f1
+2026-09-04 19:08:38.263589+00:00 buy market qty= 87 status= filled id= ea5315cd
+2026-09-04 19:08:40.344030+00:00 sell stop qty= 120 status= canceled id= d6a40d05
+2026-09-15 19:53:59.224969+00:00 sell stop qty= 120 status= canceled id= bc17449d
+2026-09-16 19:09:30.728605+00:00 sell stop qty= 120 status= new id= 26ba17aa

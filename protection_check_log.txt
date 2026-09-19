@@ -21,3 +21,30 @@
 [2026-09-11T15:19:25.270156] OK: all positions adequately protected.
 [2026-09-11T15:32:29.533977] OK: all positions adequately protected.
 [2026-09-12T15:00:10.117342] OK: all positions adequately protected.
+[2026-09-13T15:00:06.335857] OK: all positions adequately protected.
+[2026-09-14T15:00:23.654543] OK: all positions adequately protected.
+[2026-09-14T15:43:15.230060] OK: all positions adequately protected.
+[2026-09-15T15:00:19.134015] !!! PROTECTION GAP DETECTED: 2 position(s) with >1 share unprotected !!!
+[2026-09-15T15:00:19.135333]   DIS: total=32.000 protected=0.000 gap=32.000
+[2026-09-15T15:00:19.135678]   PFE: total=120.881 protected=0.000 gap=120.881
+[2026-09-15T15:00:19.135941] Manual intervention needed -- see backfill_stop_losses.py pattern in chat history for how to fix a specific symbol's gap.
+[2026-09-15T15:53:51.460662] !!! PROTECTION GAP DETECTED: 2 position(s) with >1 share unprotected !!!
+[2026-09-15T15:53:51.461242]   DIS: total=32.000 protected=0.000 gap=32.000
+[2026-09-15T15:53:51.461351]   PFE: total=120.881 protected=0.000 gap=120.881
+[2026-09-15T15:53:51.461417] Manual intervention needed -- see backfill_stop_losses.py pattern in chat history for how to fix a specific symbol's gap.
+[2026-09-15T15:54:07.174570] OK: all positions adequately protected.
+[2026-09-15T15:54:52.544731] OK: all positions adequately protected.
+[2026-09-16T15:00:19.381669] !!! PROTECTION GAP DETECTED: 1 position(s) with >1 share unprotected !!!
+[2026-09-16T15:00:19.382690]   PFE: total=120.881 protected=0.000 gap=120.881
+[2026-09-16T15:00:19.382817] Manual intervention needed -- see backfill_stop_losses.py pattern in chat history for how to fix a specific symbol's gap.
+[2026-09-16T15:09:23.694256] !!! PROTECTION GAP DETECTED: 1 position(s) with >1 share unprotected !!!
+[2026-09-16T15:09:23.694699]   PFE: total=120.881 protected=0.000 gap=120.881
+[2026-09-16T15:09:23.694778] Manual intervention needed -- see backfill_stop_losses.py pattern in chat history for how to fix a specific symbol's gap.
+[2026-09-16T15:09:35.124628] OK: all positions adequately protected.
+[2026-09-16T15:22:15.032503] OK: all positions adequately protected.
+[2026-09-17T16:08:55.215586] OK: all positions adequately protected.
+[2026-09-17T16:11:13.872099] OK: all positions adequately protected.
+[2026-09-18T15:00:43.083739] OK: all positions adequately protected.
+[2026-09-18T16:04:47.899793] OK: all positions adequately protected.
+[2026-09-18T16:19:11.508308] OK: all positions adequately protected.
+[2026-09-19T15:00:08.374911] OK: all positions adequately protected.

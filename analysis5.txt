@@ -1,0 +1,12 @@
+﻿HD entry~ 335.51 stopped@ 318.73 qty 10.0 loss 167.8
+UNH entry~ 402.41 stopped@ 381.55 qty 9.0 loss 187.74
+NVDA entry~ 227.63 stopped@ 210.62 qty 10.0 loss 170.07
+LIN entry~ 489.35 stopped@ 464.74 qty 9.0 loss 221.49
+COST entry~ 957.78 stopped@ 890.57 qty 3.0 loss 201.63
+HD entry~ 318.89 stopped@ 302.9 qty 9.0 loss 143.91
+BA entry~ 210.41 stopped@ 199.69 qty 17.0 loss 182.2
+VZ entry~ 50.41 stopped@ 47.77 qty 91.0 loss 240.48
+UNH entry~ 393.72 stopped@ 373.81 qty 8.0 loss 159.28
+AVGO entry~ 363.61 stopped@ 345.31 qty 7.0 loss 128.12
+
+Total dollar loss attributable to stop-loss triggers: 1802.72

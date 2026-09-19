@@ -144,12 +144,52 @@ def rebalance(client: TradingClient, data_client: StockHistoricalDataClient, tar
     up freezing the whole portfolio from further rebalancing. Canceling
     and replacing keeps the position genuinely actively managed, matching
     what was actually backtested.
+
+    BUG FIX: the cancel used to happen unconditionally at the top of each
+    iteration, before checking whether the new order would even be
+    submitted. Caught live: the margin guard blocked two BUYs (DIS, PFE)
+    AFTER their existing stop-losses had already been canceled, leaving
+    both positions with zero protection for the rest of the day, undoing
+    exactly the safety this method is supposed to preserve. Fix: cancel
+    only immediately before the order that's actually going to replace
+    it, once we know that order will be submitted -- for BUY, that's
+    after the margin check passes, not before it.
     """
     account = client.get_account()
     portfolio_value = float(account.portfolio_value)
     current = get_current_positions(client)
     open_orders_by_symbol = get_open_orders_by_symbol(client)
     committed = sum(p["market_value"] for p in current.values())  # running total, starts at current holdings
+
+    def _cancel_existing(symbol):
+        if symbol not in open_orders_by_symbol:
+            return True
+        if dry_run:
+            log(f"  [DRY RUN] would CANCEL existing stop-loss order on {symbol} before rebalancing")
+            return True
+        order_id = open_orders_by_symbol[symbol].id
+        try:
+            client.cancel_order_by_id(order_id)
+        except Exception as e:
+            log(f"  FAILED to cancel existing order on {symbol}, skipping rebalance for it: {e}")
+            return False
+
+        # BUG FIX: a successful cancel_order_by_id call does not mean the
+        # cancellation has fully propagated through Alpaca's backend yet.
+        # Caught live: PFE's cancel returned successfully, but the very
+        # next BUY call, milliseconds later, was rejected as a wash trade
+        # because Alpaca's matching engine still considered the
+        # just-canceled order active. Same underlying issue as the
+        # fill-polling bugs above (assuming synchronous state in an
+        # eventually-consistent system) -- fix is the same pattern: poll
+        # until the cancellation is actually confirmed, don't trust the
+        # absence of an exception as proof it's done.
+        if not _wait_for_cancel(client, order_id):
+            log(f"  WARNING: cancel on {symbol} did not confirm within the wait window -- "
+                f"skipping rebalance for it this run rather than risk a wash-trade collision.")
+            return False
+        log(f"  Canceled existing stop-loss on {symbol} to allow rebalance")
+        return True
 
     for symbol, row in targets.iterrows():
         target_value = portfolio_value * row["position_size_pct"]
@@ -165,17 +205,6 @@ def rebalance(client: TradingClient, data_client: StockHistoricalDataClient, tar
             continue
 
         side = OrderSide.BUY if diff_value > 0 else OrderSide.SELL
-
-        if symbol in open_orders_by_symbol:
-            if dry_run:
-                log(f"  [DRY RUN] would CANCEL existing stop-loss order on {symbol} before rebalancing")
-            else:
-                try:
-                    client.cancel_order_by_id(open_orders_by_symbol[symbol].id)
-                    log(f"  Canceled existing stop-loss on {symbol} to allow rebalance")
-                except Exception as e:
-                    log(f"  FAILED to cancel existing order on {symbol}, skipping rebalance for it: {e}")
-                    continue
 
         if side == OrderSide.BUY:
             quote = data_client.get_stock_latest_quote(
@@ -193,13 +222,19 @@ def rebalance(client: TradingClient, data_client: StockHistoricalDataClient, tar
             if projected_committed > portfolio_value:
                 log(f"  BLOCKED BUY {symbol}: {qty} shares (~${order_value:.2f}) would push total "
                     f"committed to ${projected_committed:.2f}, exceeding portfolio value "
-                    f"${portfolio_value:.2f} (no margin allowed). Skipping.")
+                    f"${portfolio_value:.2f} (no margin allowed). Skipping -- existing stop-loss, "
+                    f"if any, left untouched.")
                 continue
             committed = projected_committed
 
             if dry_run:
                 log(f"  [DRY RUN] would BUY {symbol}: {qty} shares @ ~${price:.2f} "
                     f"(~${order_value:.2f}), stop-loss target ${stop_price:.2f}")
+                continue
+
+            # Only cancel now that we know the BUY is actually proceeding --
+            # margin check already passed above.
+            if not _cancel_existing(symbol):
                 continue
 
             try:
@@ -213,6 +248,14 @@ def rebalance(client: TradingClient, data_client: StockHistoricalDataClient, tar
             _place_stop_loss(client, order.id, symbol, row["stop_loss_pct"])
 
         else:
+            # SELLs are never blocked by the margin guard (they only reduce
+            # exposure), so canceling immediately before submitting is safe
+            # here -- but do it right before the SELL, not at the top of
+            # the loop, for the same reasoning as the BUY branch: don't
+            # cancel protection for a trade that hasn't been confirmed yet.
+            if not _cancel_existing(symbol):
+                continue
+
             # available_qty may be stale immediately after a cancel (the
             # freed shares can take a moment to reflect) -- re-fetch this
             # symbol's position fresh rather than trust the pre-cancel snapshot.
@@ -305,6 +348,24 @@ def _wait_for_fill(client: TradingClient, order_id: str,
     while elapsed < max_wait_s:
         order = client.get_order_by_id(order_id)
         if order.status == OrderStatus.FILLED:
+            return True
+        time.sleep(poll_interval_s)
+        elapsed += poll_interval_s
+    return False
+
+
+def _wait_for_cancel(client: TradingClient, order_id: str,
+                      poll_interval_s: float = 1.0, max_wait_s: float = 15.0) -> bool:
+    """Poll an order until it reaches a terminal canceled-like status, or
+    return False after max_wait_s. See _cancel_existing's docstring in
+    rebalance() for why this is needed -- a successful cancel_order_by_id
+    call doesn't guarantee Alpaca's backend has finished processing it.
+    """
+    terminal_statuses = {OrderStatus.CANCELED, OrderStatus.EXPIRED, OrderStatus.REJECTED}
+    elapsed = 0.0
+    while elapsed < max_wait_s:
+        order = client.get_order_by_id(order_id)
+        if order.status in terminal_statuses:
             return True
         time.sleep(poll_interval_s)
         elapsed += poll_interval_s

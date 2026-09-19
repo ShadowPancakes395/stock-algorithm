@@ -1,0 +1,9 @@
+﻿Realized P&L (all-time, from account equity vs cash basis):
+  Cash: 3062.54
+  Portfolio value: 98294.29
+  Equity: 98294.29
+  Last equity: 98438.36
+
+Total unrealized P&L (open positions): -363.91
+Total value change since start: -1705.71
+Approx realized P&L (closed trades): -1341.8

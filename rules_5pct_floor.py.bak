@@ -30,11 +30,7 @@ OVERWEIGHT_MULTIPLIER = 1.5
 UNDERWEIGHT_MULTIPLIER = 0.3  # reverted -- softening to 0.6 didn't show a clear isolated benefit
 MAX_POSITION_PCT = 0.10          # cap per-position size regardless of weighting band
 STOP_LOSS_VOL_MULTIPLIER = 3.0   # stop-loss distance = N x forecast daily volatility
-BASE_STOP_LOSS_PCT = 0.08  # widened from 0.05 -- live triggers showed the floor was the
-                            # actual binding constraint for most stop-outs (clustered at
-                            # 5.0-5.2%), causing whipsaws: HD and UNH each got stopped
-                            # out and re-bought within days, twice each, over 3 weeks.
-                            # 8% gives room above ordinary large-cap daily noise.
+BASE_STOP_LOSS_PCT = 0.05        # floor, in case forecast volatility is ~0
 
 
 def generate_signals(featured: pd.DataFrame, forecast_volatility: pd.Series) -> pd.DataFrame:

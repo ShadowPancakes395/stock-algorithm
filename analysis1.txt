@@ -1,0 +1,3 @@
+﻿Total filled market orders (buys+sells): 74
+Buys: 58 Sells: 16
+Total dollar volume traded: 185715.26

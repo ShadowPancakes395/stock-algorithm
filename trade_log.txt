@@ -257,3 +257,96 @@
 [2026-09-11T15:19:23.091914] === Run complete ===
 [2026-09-12T15:00:05.495147] === Starting daily trading run ===
 [2026-09-12T15:00:05.979390] Market is closed (next open: 2026-09-14 09:30:00-04:00). Exiting without trading.
+[2026-09-13T15:00:04.008275] === Starting daily trading run ===
+[2026-09-13T15:00:04.248508] Market is closed (next open: 2026-09-14 09:30:00-04:00). Exiting without trading.
+[2026-09-14T15:00:04.138436] === Starting daily trading run ===
+[2026-09-14T15:00:09.281009] Generated targets using data through 2026-09-14 (28 tickers)
+[2026-09-14T15:00:09.816551]   BUY AVGO: 7 shares (~$2425.50, order 7d343d37-f27f-4212-a4f5-a7583f7ccca0)
+[2026-09-14T15:00:11.966222]     NOTE: AVGO total position 7.083283927 shares (fractional) -- stop-loss covers 7 whole shares, 0.083284 remainder is UNPROTECTED.
+[2026-09-14T15:00:12.006407]     stop-loss placed for AVGO: 7 shares (full position) @ $327.70
+[2026-09-14T15:00:12.083774]   BUY NVDA: 8 shares (~$1700.80, order 4643ce0a-0ad5-4d13-9ae8-5277c8975140)
+[2026-09-14T15:00:14.189412]     stop-loss placed for NVDA: 8 shares (full position) @ $195.41
+[2026-09-14T15:00:14.207707]   Canceled existing stop-loss on NEE to allow rebalance
+[2026-09-14T15:00:14.296632]   SELL NEE: 13.4059 shares (~$1099.95, order 6e40ba1c-23f2-4f2b-be0a-c21f94f226a3)
+[2026-09-14T15:00:18.402025]     re-placed stop-loss for NEE: 51 shares (full remaining position) @ $77.95
+[2026-09-14T15:00:18.418058]   Canceled existing stop-loss on V to allow rebalance
+[2026-09-14T15:00:18.482506]   BUY V: 5 shares (~$1865.75, order 35f668d4-66ca-4d17-b61e-580527f2c91a)
+[2026-09-14T15:00:20.550984]     NOTE: V total position 14.636487415 shares (fractional) -- stop-loss covers 14 whole shares, 0.636487 remainder is UNPROTECTED.
+[2026-09-14T15:00:20.578708]     stop-loss placed for V: 14 shares (full position) @ $354.21
+[2026-09-14T15:00:20.579256] === Run complete ===
+[2026-09-15T15:00:07.422670] === Starting daily trading run ===
+[2026-09-15T15:00:13.182552] Generated targets using data through 2026-09-15 (28 tickers)
+[2026-09-15T15:00:13.304160]   Canceled existing stop-loss on AAPL to allow rebalance
+[2026-09-15T15:00:13.605884]   BUY AAPL: 8 shares (~$2643.60, order 4cab09f8-a9f3-4a93-842b-6564848b30c6)
+[2026-09-15T15:00:15.676998]     NOTE: AAPL total position 10.959796514 shares (fractional) -- stop-loss covers 10 whole shares, 0.959797 remainder is UNPROTECTED.
+[2026-09-15T15:00:15.698054]     stop-loss placed for AAPL: 10 shares (full position) @ $313.93
+[2026-09-15T15:00:15.715288]   Canceled existing stop-loss on DIS to allow rebalance
+[2026-09-15T15:00:15.730512]   BLOCKED BUY DIS: 12 shares (~$1277.76) would push total committed to $100277.57, exceeding portfolio value $99075.80 (no margin allowed). Skipping.
+[2026-09-15T15:00:15.747821]   Canceled existing stop-loss on PFE to allow rebalance
+[2026-09-15T15:00:15.770632]   BLOCKED BUY PFE: 54 shares (~$1486.62) would push total committed to $100486.43, exceeding portfolio value $99075.80 (no margin allowed). Skipping.
+[2026-09-15T15:00:15.771061] === Run complete ===
+[2026-09-15T15:54:43.956568] === Starting daily trading run [DRY RUN] ===
+[2026-09-15T15:54:47.217592] Generated targets using data through 2026-09-15 (28 tickers)
+[2026-09-15T15:54:47.743238]   BLOCKED BUY DIS: 13 shares (~$1379.17) would push total committed to $100344.69, exceeding portfolio value $99041.50 (no margin allowed). Skipping -- existing stop-loss, if any, left untouched.
+[2026-09-15T15:54:47.759085]   BLOCKED BUY PFE: 64 shares (~$1758.72) would push total committed to $100724.24, exceeding portfolio value $99041.50 (no margin allowed). Skipping -- existing stop-loss, if any, left untouched.
+[2026-09-15T15:54:47.759539] === Run complete ===
+[2026-09-16T15:00:03.840767] === Starting daily trading run ===
+[2026-09-16T15:00:09.972371] Generated targets using data through 2026-09-16 (28 tickers)
+[2026-09-16T15:00:10.420275]   Canceled existing stop-loss on CAT to allow rebalance
+[2026-09-16T15:00:10.445208]   BUY CAT: 1 shares (~$800.00, order 2de0ffa4-f7c0-4de6-9192-0230559c75ca)
+[2026-09-16T15:00:12.558600]     NOTE: CAT total position 3.818527333 shares (fractional) -- stop-loss covers 3 whole shares, 0.818527 remainder is UNPROTECTED.
+[2026-09-16T15:00:12.603020]     stop-loss placed for CAT: 3 shares (full position) @ $743.95
+[2026-09-16T15:00:12.672878]   BUY BA: 13 shares (~$2605.85, order 5887dd26-0f4d-422f-84f3-ea09c0d237fb)
+[2026-09-16T15:00:14.789120]     NOTE: BA total position 13.822827215 shares (fractional) -- stop-loss covers 13 whole shares, 0.822827 remainder is UNPROTECTED.
+[2026-09-16T15:00:14.830935]     stop-loss placed for BA: 13 shares (full position) @ $190.25
+[2026-09-16T15:00:14.852351]   Canceled existing stop-loss on KO to allow rebalance
+[2026-09-16T15:00:14.955486]   SELL KO: 0.9756 shares (~$86.02, order cd376e80-665b-4c50-ab6d-c1859c9d48c6)
+[2026-09-16T15:00:15.033758]     re-placed stop-loss for KO: 76 shares (full remaining position) @ $83.76
+[2026-09-16T15:00:15.067519]   Canceled existing stop-loss on PFE to allow rebalance
+[2026-09-16T15:00:15.093469]   FAILED BUY PFE: {"code":40310000,"existing_order_id":"bc17449d-b573-4b3e-a84c-3ff6e1732af2","message":"potential wash trade detected. use complex orders","reject_reason":"opposite side market/stop order exists"}
+[2026-09-16T15:00:15.140092]   BLOCKED BUY UNH: 9 shares (~$3403.71) would push total committed to $100592.36, exceeding portfolio value $98300.79 (no margin allowed). Skipping -- existing stop-loss, if any, left untouched.
+[2026-09-16T15:00:15.140704] === Run complete ===
+[2026-09-16T15:22:05.333452] === Starting daily trading run [DRY RUN] ===
+[2026-09-16T15:22:09.309188] Generated targets using data through 2026-09-16 (28 tickers)
+[2026-09-16T15:22:09.634413]   [DRY RUN] would CANCEL existing stop-loss order on KO before rebalancing
+[2026-09-16T15:22:09.961262]   [DRY RUN] would SELL KO: 0.0000 shares (~$0.00)
+[2026-09-16T15:22:09.980818]   BLOCKED BUY UNH: 9 shares (~$3388.32) would push total committed to $98141.72, exceeding portfolio value $97911.82 (no margin allowed). Skipping -- existing stop-loss, if any, left untouched.
+[2026-09-16T15:22:09.997218]   [DRY RUN] would BUY PFE: 75 shares @ ~$27.39 (~$2054.25), stop-loss target $26.02
+[2026-09-16T15:22:09.998790] === Run complete ===
+[2026-09-17T16:08:52.647214] === Starting daily trading run ===
+[2026-09-17T16:08:53.011729] Market is closed (next open: 2026-09-18 09:30:00-04:00). Exiting without trading.
+[2026-09-18T15:00:03.811221] === Starting daily trading run ===
+[2026-09-18T15:00:09.616588] Generated targets using data through 2026-09-18 (28 tickers)
+[2026-09-18T15:00:10.815291]   Canceled existing stop-loss on AMD to allow rebalance
+[2026-09-18T15:00:11.094561]   SELL AMD: 3.0127 shares (~$1641.32, order 15f0e919-5740-4f3c-96c4-59ff1d392884)
+[2026-09-18T15:00:13.193674]   BUY COST: 3 shares (~$2694.00, order 3558b561-a31b-4d86-8a9b-78bd53807f91)
+[2026-09-18T15:00:15.301180]     NOTE: COST total position 3.995355223 shares (fractional) -- stop-loss covers 3 whole shares, 0.995355 remainder is UNPROTECTED.
+[2026-09-18T15:00:15.323125]     stop-loss placed for COST: 3 shares (full position) @ $852.51
+[2026-09-18T15:00:15.378231]   Canceled existing stop-loss on DIS to allow rebalance
+[2026-09-18T15:00:15.404221]   BUY DIS: 11 shares (~$1132.45, order 6f373f1b-f232-4dc7-8c9e-7ea5f552fb4a)
+[2026-09-18T15:00:17.513829]     stop-loss placed for DIS: 43 shares (full position) @ $97.80
+[2026-09-18T15:00:17.549543]   Canceled existing stop-loss on KO to allow rebalance
+[2026-09-18T15:00:17.627763]   SELL KO: 25.9996 shares (~$2291.60, order fb2e5823-7869-4312-a011-d0678613f014)
+[2026-09-18T15:00:21.723194]     re-placed stop-loss for KO: 50 shares (full remaining position) @ $83.73
+[2026-09-18T15:00:21.767281]   BUY HD: 11 shares (~$3304.18, order d666ade2-1180-4c6c-89c1-4637473db8a4)
+[2026-09-18T15:00:23.846925]     NOTE: HD total position 11.155285982 shares (fractional) -- stop-loss covers 11 whole shares, 0.155286 remainder is UNPROTECTED.
+[2026-09-18T15:00:23.867722]     stop-loss placed for HD: 11 shares (full position) @ $285.30
+[2026-09-18T15:00:24.945362]   Canceled existing stop-loss on PFE to allow rebalance
+[2026-09-18T15:00:24.966164]   BUY PFE: 49 shares (~$1351.91, order e8e86687-4579-4bb5-8a8d-30f1a911bd95)
+[2026-09-18T15:00:31.083516]     NOTE: PFE total position 169.8809 shares (fractional) -- stop-loss covers 169 whole shares, 0.880900 remainder is UNPROTECTED.
+[2026-09-18T15:00:31.104397]     stop-loss placed for PFE: 169 shares (full position) @ $26.21
+[2026-09-18T15:00:31.157495]   Canceled existing stop-loss on MSFT to allow rebalance
+[2026-09-18T15:00:31.177932]   BUY MSFT: 2 shares (~$993.30, order d0f06585-c8ad-4960-b145-07834fe9fe67)
+[2026-09-18T15:00:33.257680]     NOTE: MSFT total position 9.050843349 shares (fractional) -- stop-loss covers 9 whole shares, 0.050843 remainder is UNPROTECTED.
+[2026-09-18T15:00:33.279551]     stop-loss placed for MSFT: 9 shares (full position) @ $471.30
+[2026-09-18T15:00:33.339501]   BUY UNH: 8 shares (~$3020.00, order 7cfd01e7-24de-4ac2-a02e-4bc47a96d044)
+[2026-09-18T15:00:35.414589]     NOTE: UNH total position 8.294823687 shares (fractional) -- stop-loss covers 8 whole shares, 0.294824 remainder is UNPROTECTED.
+[2026-09-18T15:00:35.437525]     stop-loss placed for UNH: 8 shares (full position) @ $357.51
+[2026-09-18T15:00:35.453467]   BLOCKED BUY VZ: 101 shares (~$4850.02) would push total committed to $98846.78, exceeding portfolio value $98336.90 (no margin allowed). Skipping -- existing stop-loss, if any, left untouched.
+[2026-09-18T15:00:35.505570]   Canceled existing stop-loss on WMT to allow rebalance
+[2026-09-18T15:00:35.525698]   BUY WMT: 12 shares (~$1291.08, order 4d59e6b1-1ef4-4cfb-b4ee-4e7c8987eb5c)
+[2026-09-18T15:00:39.617199]     NOTE: WMT total position 35.861372395 shares (fractional) -- stop-loss covers 35 whole shares, 0.861372 remainder is UNPROTECTED.
+[2026-09-18T15:00:39.637198]     stop-loss placed for WMT: 35 shares (full position) @ $102.21
+[2026-09-18T15:00:39.637694] === Run complete ===
+[2026-09-19T15:00:04.797136] === Starting daily trading run ===
+[2026-09-19T15:00:05.183322] Market is closed (next open: 2026-09-21 09:30:00-04:00). Exiting without trading.

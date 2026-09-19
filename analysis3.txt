@@ -1,0 +1,1 @@
+﻿Stop-losses ever triggered: 10
