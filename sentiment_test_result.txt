@@ -1,0 +1,24 @@
+﻿Fetching data and building features...
+
+=== BASELINE (no sentiment rule) ===
+  total_return_pct: 55.951
+  annualized_sharpe: 1.633
+  max_drawdown_pct: -11.520
+  num_trades: 1586
+  win_rate_pct: 60.782
+
+=== WITH SENTIMENT RULE (block dip-buys on very negative sentiment) ===
+    (blocked 12 dip-buy signals due to very negative sentiment)
+    (blocked 12 dip-buy signals due to very negative sentiment)
+    (blocked 17 dip-buy signals due to very negative sentiment)
+    (blocked 19 dip-buy signals due to very negative sentiment)
+  total_return_pct: 55.901
+  annualized_sharpe: 1.634
+  max_drawdown_pct: -11.520
+  num_trades: 1573
+  win_rate_pct: 61.030
+
+=== BENCHMARK ===
+  total_return_pct: 100.296
+  annualized_sharpe: 1.799
+  max_drawdown_pct: -16.270

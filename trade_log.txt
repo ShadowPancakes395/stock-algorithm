@@ -350,3 +350,114 @@
 [2026-09-18T15:00:39.637694] === Run complete ===
 [2026-09-19T15:00:04.797136] === Starting daily trading run ===
 [2026-09-19T15:00:05.183322] Market is closed (next open: 2026-09-21 09:30:00-04:00). Exiting without trading.
+[2026-09-20T15:00:03.830206] === Starting daily trading run ===
+[2026-09-20T15:00:04.072068] Market is closed (next open: 2026-09-21 09:30:00-04:00). Exiting without trading.
+[2026-09-21T15:00:03.917008] === Starting daily trading run ===
+[2026-09-21T15:00:09.483371] Generated targets using data through 2026-09-21 (28 tickers)
+[2026-09-21T15:00:09.603571]   Canceled existing stop-loss on AAPL to allow rebalance
+[2026-09-21T15:00:09.943509]   SELL AAPL: 7.6591 shares (~$2592.52, order f0121c69-315f-48df-95f2-9ef42ee0577f)
+[2026-09-21T15:00:12.021097]     re-placed stop-loss for AAPL: 3 shares (full remaining position) @ $311.41
+[2026-09-21T15:00:12.061255]   Canceled existing stop-loss on DIS to allow rebalance
+[2026-09-21T15:00:12.120384]   SELL DIS: 10.5511 shares (~$1100.79, order b9ba6e1d-44ff-40df-a512-f5ccf08ae44d)
+[2026-09-21T15:00:16.220834]     re-placed stop-loss for DIS: 32 shares (full remaining position) @ $95.98
+[2026-09-21T15:00:16.261896]   Canceled existing stop-loss on T to allow rebalance
+[2026-09-21T15:00:16.312448]   SELL T: 39.4041 shares (~$1007.96, order cb0f61bd-5a56-43be-bc93-fb2ed13f6c83)
+[2026-09-21T15:00:18.387375]     re-placed stop-loss for T: 121 shares (full remaining position) @ $23.53
+[2026-09-21T15:00:19.449183]   Canceled existing stop-loss on MSFT to allow rebalance
+[2026-09-21T15:00:19.546423]   SELL MSFT: 2.6334 shares (~$1310.95, order 156dc42a-da75-4d05-8c83-0ec859bc2210)
+[2026-09-21T15:00:21.632305]     re-placed stop-loss for MSFT: 6 shares (full remaining position) @ $457.99
+[2026-09-21T15:00:21.702235]   Canceled existing stop-loss on PFE to allow rebalance
+[2026-09-21T15:00:21.727773]   BUY PFE: 51 shares (~$1422.39, order 6418a9f2-7e7e-4833-a748-6fc30a10c3d9)
+[2026-09-21T15:00:25.828852]     NOTE: PFE total position 220.8809 shares (fractional) -- stop-loss covers 220 whole shares, 0.880900 remainder is UNPROTECTED.
+[2026-09-21T15:00:25.852207]     stop-loss placed for PFE: 220 shares (full position) @ $25.66
+[2026-09-21T15:00:25.895842]   BUY VZ: 106 shares (~$5076.34, order 397fede2-95b0-4131-8790-9961e4206132)
+[2026-09-21T15:00:28.006980]     stop-loss placed for VZ: 106 shares (full position) @ $44.06
+[2026-09-21T15:00:28.007771] === Run complete ===
+[2026-09-22T15:00:03.554501] === Starting daily trading run ===
+[2026-09-22T15:00:09.534168] Generated targets using data through 2026-09-22 (28 tickers)
+[2026-09-22T15:00:09.634770]   Canceled existing stop-loss on CSCO to allow rebalance
+[2026-09-22T15:00:09.940995]   SELL CSCO: 9.9308 shares (~$1053.06, order 8eb90043-526e-4e87-a432-a560164aa74c)
+[2026-09-22T15:00:12.025511]     re-placed stop-loss for CSCO: 22 shares (full remaining position) @ $97.56
+[2026-09-22T15:00:12.095322]   Canceled existing stop-loss on AAPL to allow rebalance
+[2026-09-22T15:00:12.116185]   BUY AAPL: 7 shares (~$2381.75, order f5f60ecf-3629-47f0-8fcc-8e26f25aebc7)
+[2026-09-22T15:00:14.196132]     NOTE: AAPL total position 10.300696514 shares (fractional) -- stop-loss covers 10 whole shares, 0.300697 remainder is UNPROTECTED.
+[2026-09-22T15:00:14.218733]     stop-loss placed for AAPL: 10 shares (full position) @ $313.03
+[2026-09-22T15:00:14.236525]   BLOCKED BUY T: 66 shares (~$1654.62) would push total committed to $98837.96, exceeding portfolio value $98432.37 (no margin allowed). Skipping -- existing stop-loss, if any, left untouched.
+[2026-09-22T15:00:15.294157]   Canceled existing stop-loss on VZ to allow rebalance
+[2026-09-22T15:00:15.348654]   SELL VZ: 45.9524 shares (~$2130.35, order a2ac5517-6d63-48e2-9cb1-1068ee56180c)
+[2026-09-22T15:00:17.427601]     re-placed stop-loss for VZ: 60 shares (full remaining position) @ $42.65
+[2026-09-22T15:00:18.483994]   Canceled existing stop-loss on V to allow rebalance
+[2026-09-22T15:00:18.546708]   SELL V: 4.2833 shares (~$1542.00, order 3443868d-ba76-4630-a664-df7421d62ab2)
+[2026-09-22T15:00:22.643100]     re-placed stop-loss for V: 10 shares (full remaining position) @ $331.20
+[2026-09-22T15:00:22.643850] === Run complete ===
+[2026-09-23T15:00:03.404646] === Starting daily trading run ===
+[2026-09-23T15:00:08.690735] Generated targets using data through 2026-09-23 (28 tickers)
+[2026-09-23T15:00:09.132789]   Canceled existing stop-loss on DIS to allow rebalance
+[2026-09-23T15:00:09.155415]   BUY DIS: 14 shares (~$1447.46, order b9334520-77c6-4eff-8518-1f1a4a901334)
+[2026-09-23T15:00:11.240641]     NOTE: DIS total position 46.4489 shares (fractional) -- stop-loss covers 46 whole shares, 0.448900 remainder is UNPROTECTED.
+[2026-09-23T15:00:11.260759]     stop-loss placed for DIS: 46 shares (full position) @ $95.12
+[2026-09-23T15:00:11.348938]   Canceled existing stop-loss on JNJ to allow rebalance
+[2026-09-23T15:00:11.367528]   BUY JNJ: 6 shares (~$1611.72, order 3b36c294-9d04-447c-855b-70c07d031421)
+[2026-09-23T15:00:15.491492]     stop-loss placed for JNJ: 22 shares (full position) @ $246.94
+[2026-09-23T15:00:15.533118]   BUY NEE: 50 shares (~$3859.00, order e789adef-093a-4b85-8e0c-d4cd3e3dba40)
+[2026-09-23T15:00:17.609307]     NOTE: NEE total position 50.090357573 shares (fractional) -- stop-loss covers 50 whole shares, 0.090358 remainder is UNPROTECTED.
+[2026-09-23T15:00:17.629444]     stop-loss placed for NEE: 50 shares (full position) @ $71.01
+[2026-09-23T15:00:17.630010] === Run complete ===
+[2026-09-24T15:00:26.065321] === Starting daily trading run ===
+[2026-09-25T15:00:09.631174] === Starting daily trading run ===
+[2026-09-25T15:00:18.423254] Generated targets using data through 2026-09-25 (28 tickers)
+[2026-09-25T15:00:19.633268]   Canceled existing stop-loss on AAPL to allow rebalance
+[2026-09-25T15:00:19.960718]   SELL AAPL: 7.0532 shares (~$2400.61, order 80ebe51b-7d27-47f6-9c1d-1a1b0f5a9590)
+[2026-09-25T15:00:22.044353]     re-placed stop-loss for AAPL: 3 shares (full remaining position) @ $313.13
+[2026-09-25T15:00:23.102434]   Canceled existing stop-loss on DIS to allow rebalance
+[2026-09-25T15:00:23.179612]   SELL DIS: 14.9660 shares (~$1579.21, order 1e145f86-72fe-4158-9220-05fa614dc997)
+[2026-09-25T15:00:25.261594]     re-placed stop-loss for DIS: 31 shares (full remaining position) @ $97.08
+[2026-09-25T15:00:26.332938]   Canceled existing stop-loss on NVDA to allow rebalance
+[2026-09-25T15:00:26.364689]   BUY NVDA: 4 shares (~$896.28, order 94318a27-262c-4b39-ac7d-2347c08b5a22)
+[2026-09-25T15:00:28.469103]     stop-loss placed for NVDA: 12 shares (full position) @ $206.15
+[2026-09-25T15:00:28.504976]   Canceled existing stop-loss on PFE to allow rebalance
+[2026-09-25T15:00:28.567575]   SELL PFE: 55.8752 shares (~$1589.09, order 24b62d2a-f756-4be6-9727-62334961a9e4)
+[2026-09-25T15:00:32.680698]     re-placed stop-loss for PFE: 165 shares (full remaining position) @ $26.16
+[2026-09-25T15:00:32.681274] === Run complete ===
+[2026-09-26T15:00:03.785671] === Starting daily trading run ===
+[2026-09-26T15:00:04.014741] Market is closed (next open: 2026-09-28 09:30:00-04:00). Exiting without trading.
+[2026-09-27T15:00:03.602776] === Starting daily trading run ===
+[2026-09-27T15:00:03.852424] Market is closed (next open: 2026-09-28 09:30:00-04:00). Exiting without trading.
+[2026-09-28T15:00:03.505020] === Starting daily trading run ===
+[2026-09-28T15:00:10.898601] Generated targets using data through 2026-09-28 (28 tickers)
+[2026-09-28T15:00:11.309780]   BUY BA: 11 shares (~$2041.49, order cdc12a6c-c121-47dc-b4b0-e8bc72d4b547)
+[2026-09-28T15:00:15.421507]     NOTE: BA total position 11.822827215 shares (fractional) -- stop-loss covers 11 whole shares, 0.822827 remainder is UNPROTECTED.
+[2026-09-28T15:00:15.446958]     stop-loss placed for BA: 11 shares (full position) @ $170.73
+[2026-09-28T15:00:16.514292]   Canceled existing stop-loss on JNJ to allow rebalance
+[2026-09-28T15:00:16.587460]   SELL JNJ: 6.0688 shares (~$1551.25, order 18f76d4d-8f8d-477c-9377-7c6675a5ddff)
+[2026-09-28T15:00:18.691684]     re-placed stop-loss for JNJ: 15 shares (full remaining position) @ $235.16
+[2026-09-28T15:00:18.735923]   Canceled existing stop-loss on PFE to allow rebalance
+[2026-09-28T15:00:18.824235]   SELL PFE: 112.9802 shares (~$3249.31, order 6be84feb-0d62-4ac7-be6f-4e81d2dcd8e4)
+[2026-09-28T15:00:20.932606]     re-placed stop-loss for PFE: 52 shares (full remaining position) @ $26.46
+[2026-09-28T15:00:20.933268] === Run complete ===
+[2026-09-28T15:13:20.484378] === Starting daily trading run [DRY RUN] ===
+[2026-09-28T15:13:24.199578] Generated targets using data through 2026-09-28 (28 tickers)
+[2026-09-28T15:13:24.464642] === Run complete ===
+[2026-09-28T15:13:34.369950] WARNING: event-risk lookup failed, proceeding without it: 401 Client Error: Unauthorized for url: https://finnhub.io/api/v1/calendar/earnings?from=2026-09-28&to=2026-09-30&token=invalid_key_for_testing
+[2026-09-28T15:13:34.380874] Generated targets using data through 2026-09-28 (28 tickers)
+[2026-09-29T15:00:03.572114] === Starting daily trading run ===
+[2026-09-29T15:00:12.821446] Generated targets using data through 2026-09-29 (28 tickers)
+[2026-09-29T15:00:14.237877]   Canceled existing stop-loss on AAPL to allow rebalance
+[2026-09-29T15:00:14.261792]   BUY AAPL: 6 shares (~$1986.42, order 7bcd00c9-6608-4e57-b307-f443258f5f90)
+[2026-09-29T15:00:16.349989]     NOTE: AAPL total position 9.247496514 shares (fractional) -- stop-loss covers 9 whole shares, 0.247497 remainder is UNPROTECTED.
+[2026-09-29T15:00:16.378350]     stop-loss placed for AAPL: 9 shares (full position) @ $304.57
+[2026-09-29T15:00:16.418809]   BUY AMD: 2 shares (~$1225.70, order 2328964a-3b62-43d7-93dc-1c56100a7f75)
+[2026-09-29T15:00:18.514155]     NOTE: AMD total position 2.983524458 shares (fractional) -- stop-loss covers 2 whole shares, 0.983524 remainder is UNPROTECTED.
+[2026-09-29T15:00:18.546847]     stop-loss placed for AMD: 2 shares (full position) @ $561.26
+[2026-09-29T15:00:18.622534]   BUY META: 1 shares (~$734.81, order 460e509d-98d9-4c5f-b30d-0727ed3b8c8a)
+[2026-09-29T15:00:20.716680]     NOTE: META total position 1.987514685 shares (fractional) -- stop-loss covers 1 whole shares, 0.987515 remainder is UNPROTECTED.
+[2026-09-29T15:00:20.743996]     stop-loss placed for META: 1 shares (full position) @ $675.15
+[2026-09-29T15:00:20.746125] === Run complete ===
+[2026-09-30T15:00:03.841728] === Starting daily trading run ===
+[2026-09-30T15:00:16.656874] Generated targets using data through 2026-09-30 (28 tickers)
+[2026-09-30T15:00:16.789465]   Canceled existing stop-loss on AMD to allow rebalance
+[2026-09-30T15:00:17.088965]   SELL AMD: 2.0386 shares (~$1233.49, order 4cf5da98-bb56-4c9d-ad00-616bca5daf15)
+[2026-09-30T15:00:19.212915]   Canceled existing stop-loss on HON to allow rebalance
+[2026-09-30T15:00:19.369722]   SELL HON: 10.2113 shares (~$2151.42, order d574fb1e-8709-4cc6-8729-583ab60149ef)
+[2026-09-30T15:00:21.459699]     re-placed stop-loss for HON: 5 shares (full remaining position) @ $193.83
+[2026-09-30T15:00:21.460518] === Run complete ===

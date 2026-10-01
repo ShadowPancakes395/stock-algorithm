@@ -1,0 +1,3 @@
+﻿Total merger records: 249
+MERGER_UPDATE (pending) records: 17
+{'id': UUID('94732fe0-d2d3-47e0-85c2-b644b8729d14'), 'corporate_action_id': '3112917', 'ca_type': <CorporateActionType.MERGER: 'merger'>, 'ca_sub_type': <CorporateActionSubType.MERGER_UPDATE: 'merger_update'>, 'initiating_symbol': 'AEDFF', 'initiating_original_cusip': 'B0130A108', 'target_symbol': 'CFMOF', 'target_original_cusip': 'B25654136', 'declaration_date': None, 'ex_date': None, 'record_date': None, 'payable_date': None, 'cash': 0.0, 'old_rate': 1.0, 'new_rate': 1.1784}

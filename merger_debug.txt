@@ -1,0 +1,2 @@
+﻿Count: 249
+{'id': UUID('d1c35777-38e3-47f4-bec0-5c2ad69f80ae'), 'corporate_action_id': '3112020', 'ca_type': <CorporateActionType.MERGER: 'merger'>, 'ca_sub_type': <CorporateActionSubType.MERGER_COMPLETION: 'merger_completion'>, 'initiating_symbol': 'TBH', 'initiating_original_cusip': '104813100', 'target_symbol': 'TBH', 'target_original_cusip': '104813100', 'declaration_date': None, 'ex_date': None, 'record_date': None, 'payable_date': None, 'cash': 0.0, 'old_rate': 1.0, 'new_rate': 1.0}

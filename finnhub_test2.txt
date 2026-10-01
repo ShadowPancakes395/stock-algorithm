@@ -1,0 +1,13 @@
+﻿Our tickers with earnings in next 30 days: 12
+  XOM 2026-10-23 
+  AMT 2026-10-22 
+  HON 2026-10-22 
+  LIN 2026-10-22 bmo
+  NEE 2026-10-22 bmo
+  PG 2026-10-22 bmo
+  T 2026-10-21 
+  VZ 2026-10-20 
+  KO 2026-10-19 bmo
+  JNJ 2026-10-13 
+  JPM 2026-10-13 
+  UNH 2026-10-13 bmo

@@ -1,0 +1,17 @@
+﻿Upcoming earnings (next 2 days): set()
+.\venv\Scripts\python.exe : Traceback (most recent call last):
+At line:1 char:52
++ ... -algorithm; .\venv\Scripts\python.exe earnings_calendar.py 2>&1 | Out ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\hrish\Projects\Github\stock-algorithm\earnings_calendar.py", line 67, in <module>
+    mergers = get_pending_merger_symbols()
+  File "C:\Users\hrish\Projects\Github\stock-algorithm\earnings_calendar.py", line 52, in get_pending_merger_symbols
+    return {a.symbol for a in announcements if a.symbol in tickers}
+                                               ^^^^^^^^
+  File "C:\Users\hrish\Projects\Github\stock-algorithm\venv\Lib\site-packages\pydantic\main.py", line 1042, in 
+__getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'CorporateActionAnnouncement' object has no attribute 'symbol'

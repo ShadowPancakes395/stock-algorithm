@@ -1,0 +1,52 @@
+﻿.\venv\Scripts\python.exe : Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to 
+enable higher rate limits and faster downloads.
+At line:1 char:52
++ ... -algorithm; .\venv\Scripts\python.exe compare_sentiment_scorers.py 2> ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Warning: You ar...ster downloads.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+C:\Users\hrish\Projects\Github\stock-algorithm\venv\Lib\site-packages\huggingface_hub\file_download.py:150: 
+UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your 
+machine does not support them in C:\Users\hrish\.cache\huggingface\hub\models--ProsusAI--finbert. Caching files will 
+still work but in a degraded version that might require more space on your disk. This warning can be disabled by 
+setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see 
+https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In 
+order to activate developer mode, see this article: 
+https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+C:\Users\hrish\Projects\Github\stock-algorithm\venv\Lib\site-packages\huggingface_hub\file_download.py:150: 
+UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your 
+machine does not support them in C:\Users\hrish\.cache\huggingface\hub. Caching files will still work but in a 
+degraded version that might require more space on your disk. This warning can be disabled by setting the 
+`HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see 
+https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In 
+order to activate developer mode, see this article: 
+https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+Loading FinBERT (first run downloads ~400MB model weights)...
+
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 201/201 [00:00<00:00, 35644.14it/s]
+
+=== AAPL (Apple Inc) ===
+  VADER: +0.768  FinBERT: neutral (0.814)  Apple May Return to Servers With Its Own AI Chips. Nvidia Could Still Get Paid Apple may b
+  VADER: +0.000  FinBERT: neutral (0.643)  Warren Buffett Just Stepped Down. These 2 AI Stocks Still Define BerkshireÆs Portfolio War
+  VADER: +0.077  FinBERT: neutral (0.945)  Have an Apple iPhone 15 or 16? How to file a claim for up to $95. The claims window is ope
+  VADER: +0.440  FinBERT: negative(0.955)  NvidiaÆs Stock Is Flashing a Warning Sign as Valuation Falls Nvidia Corp.Æs sinking stock 
+
+=== JPM (JPMorgan Chase) ===
+  VADER: +0.557  FinBERT: positive(0.862)  JPMorgan Raises its Dividend: A Look at Yield, Capital, and Shareholder Returns JPMorgan C
+  VADER: +0.700  FinBERT: negative(0.970)  JPMorgan Chase Falls 3% Despite New $20B QIA Partnership; Goldman Sachs Eases, Bank of Ame
+  VADER: -0.881  FinBERT: neutral (0.919)  Charles Schwab, JPMorgan Chase Slide On Vanguard-Backed AI Threat Schwab's biggest threat 
+  VADER: +0.361  FinBERT: positive(0.797)  SoftBank Draws Over $20 Billion of Early Interest in Junk Bond SoftBank Group Corp. has dr
+  VADER: +0.905  FinBERT: negative(0.913)  Nucor and Steel Dynamics Just Pulled BackùThe Steel Story Still Looks Strong Nucor and Ste
+
+=== XOM (ExxonMobil) ===
+  VADER: -0.599  FinBERT: negative(0.944)  Rubio says Ukraine unintentionally hit 'American-linked' oil infrastructure Secretary of S
+  VADER: +0.859  FinBERT: positive(0.937)  Exxon Just Set a Bold 2030 Target for LNG Sales. Here's What 50 Million Tons Actually Mean
+  VADER: +0.202  FinBERT: neutral (0.750)  In 2020, ExxonMobil toppled the 27,000-ton Lena platform 50 miles off Louisiana, turning t
+  VADER: +0.000  FinBERT: neutral (0.939)  SUPCON Showcases Industrial AI and Autonomous Operations at Gastech 2026 SUPCON Showcases 
+  VADER: +0.000  FinBERT: neutral (0.894)  The World Has Oil, but Not Enough Refining This post The World Has Oil, but Not Enough Ref

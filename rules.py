@@ -37,10 +37,22 @@ BASE_STOP_LOSS_PCT = 0.08  # widened from 0.05 -- live triggers showed the floor
                             # 8% gives room above ordinary large-cap daily noise.
 
 
-def generate_signals(featured: pd.DataFrame, forecast_volatility: pd.Series) -> pd.DataFrame:
+def generate_signals(featured: pd.DataFrame, forecast_volatility: pd.Series,
+                      event_risk_symbols: set = frozenset()) -> pd.DataFrame:
     """Given the feature table and a per-row forecast volatility (aligned
     on the same (symbol, timestamp) index), return a target weight
     (BUY/HOLD/SELL relabeled as weight bands) plus stop-loss distance.
+
+    event_risk_symbols: tickers with a known upcoming catalyst (earnings
+    release, pending merger -- see earnings_calendar.py). A symbol in this
+    set is never allowed into the OVERWEIGHT band even if it otherwise
+    qualifies as a dip-in-uptrend -- falls back to BASE weight instead.
+    Deliberately asymmetric: never forces a SELL or blocks holding an
+    existing position, only suppresses adding FRESH overweight exposure
+    right before a known volatility catalyst. Defaults to empty (no
+    effect) so backtest.py, which has no historical earnings-date data to
+    test this against, is unaffected -- this is a live-only enhancement,
+    not backtest-validated the way the stop-loss floor was (see chat).
 
     signal column kept as BUY/HOLD/SELL for compatibility with
     backtest.py's trade-log/win-rate accounting (BUY = enter or increase,
@@ -50,7 +62,8 @@ def generate_signals(featured: pd.DataFrame, forecast_volatility: pd.Series) -> 
     df["forecast_volatility"] = forecast_volatility
 
     is_uptrend = df["price_vs_ma50"] > 0
-    dip_in_uptrend = (df["rsi_14"] < RSI_DIP) & is_uptrend
+    has_event_risk = df.index.get_level_values("symbol").isin(event_risk_symbols)
+    dip_in_uptrend = (df["rsi_14"] < RSI_DIP) & is_uptrend & ~has_event_risk
     overbought = df["rsi_14"] > RSI_OVERBOUGHT
 
     weight = pd.Series(BASE_WEIGHT, index=df.index)

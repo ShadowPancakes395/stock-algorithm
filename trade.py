@@ -37,6 +37,7 @@ from data import fetch_daily_bars
 from features import add_features
 from model import FEATURE_COLS, build_dataset, train_model
 from rules import generate_signals
+from earnings_calendar import get_event_risk_symbols
 
 LOG_PATH = "trade_log.txt"
 
@@ -74,7 +75,20 @@ def get_todays_targets() -> pd.DataFrame:
     forecast = pd.Series(
         model.predict(predictable[FEATURE_COLS]), index=predictable.index, name="forecast_volatility"
     )
-    signals = generate_signals(predictable, forecast)
+
+    # Event-risk suppression (earnings dates, pending mergers) is
+    # defensive: a Finnhub/Alpaca hiccup here shouldn't crash the whole
+    # trading run over a nice-to-have signal. Falls back to no
+    # suppression (empty set), same as the untested-in-backtest default.
+    try:
+        event_risk_symbols = get_event_risk_symbols(TICKERS)
+        if event_risk_symbols:
+            log(f"Event risk (earnings/merger) suppressing new overweight signals: {event_risk_symbols}")
+    except Exception as e:
+        log(f"WARNING: event-risk lookup failed, proceeding without it: {e}")
+        event_risk_symbols = frozenset()
+
+    signals = generate_signals(predictable, forecast, event_risk_symbols=event_risk_symbols)
 
     latest_date = signals.index.get_level_values("timestamp").max()
     today_signals = signals.xs(latest_date, level="timestamp")

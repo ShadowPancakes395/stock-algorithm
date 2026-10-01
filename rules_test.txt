@@ -1,0 +1,15 @@
+﻿signal
+HOLD    5664
+SELL    1003
+BUY      221
+Name: count, dtype: int64
+
+count    6888.000000
+mean        0.032218
+std         0.012298
+min         0.004094
+25%         0.025623
+50%         0.034540
+75%         0.040316
+max         0.080016
+Name: position_size_pct, dtype: float64

@@ -1,0 +1,2 @@
+﻿Stop triggers since the 8% floor fix: 1
+  2026-09-23 15:51:40.952877+00:00 NEE
