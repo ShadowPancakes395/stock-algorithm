@@ -461,3 +461,249 @@
 [2026-09-30T15:00:19.369722]   SELL HON: 10.2113 shares (~$2151.42, order d574fb1e-8709-4cc6-8729-583ab60149ef)
 [2026-09-30T15:00:21.459699]     re-placed stop-loss for HON: 5 shares (full remaining position) @ $193.83
 [2026-09-30T15:00:21.460518] === Run complete ===
+[2026-10-01T15:00:03.749602] === Starting daily trading run ===
+[2026-10-01T15:00:12.318065] Generated targets using data through 2026-10-01 (28 tickers)
+[2026-10-01T15:00:12.668159]   BUY AMT: 20 shares (~$3246.60, order a919f33c-cc34-4fd9-a716-72305383800e)
+[2026-10-01T15:00:14.763016]     NOTE: AMT total position 20.35489381 shares (fractional) -- stop-loss covers 20 whole shares, 0.354894 remainder is UNPROTECTED.
+[2026-10-01T15:00:14.787414]     stop-loss placed for AMT: 20 shares (full position) @ $148.67
+[2026-10-01T15:00:15.919578]   Canceled existing stop-loss on PFE to allow rebalance
+[2026-10-01T15:00:15.941723]   BUY PFE: 100 shares (~$2817.00, order e167ce4f-1d32-4b3b-b12e-294d198a27a4)
+[2026-10-01T15:00:20.044259]     NOTE: PFE total position 152.0255 shares (fractional) -- stop-loss covers 152 whole shares, 0.025500 remainder is UNPROTECTED.
+[2026-10-01T15:00:20.064845]     stop-loss placed for PFE: 152 shares (full position) @ $25.92
+[2026-10-01T15:00:20.065680] === Run complete ===
+[2026-10-02T15:10:12.656967] === Starting daily trading run ===
+[2026-10-02T15:10:18.170741] Generated targets using data through 2026-10-02 (28 tickers)
+[2026-10-02T15:10:18.296761]   Canceled existing stop-loss on CAT to allow rebalance
+[2026-10-02T15:10:18.607330]   SELL CAT: 2.9001 shares (~$2352.79, order b463cdb3-5800-42ca-8208-d0019bc88471)
+[2026-10-02T15:10:22.752871]   Canceled existing stop-loss on META to allow rebalance
+[2026-10-02T15:10:22.830199]   BUY META: 1 shares (~$728.24, order 7ef29cee-0f64-4036-861b-b24831a5690c)
+[2026-10-02T15:10:24.909774]     NOTE: META total position 2.987514685 shares (fractional) -- stop-loss covers 2 whole shares, 0.987515 remainder is UNPROTECTED.
+[2026-10-02T15:10:24.929768]     stop-loss placed for META: 2 shares (full position) @ $669.59
+[2026-10-02T15:10:24.966930]   Canceled existing stop-loss on NVDA to allow rebalance
+[2026-10-02T15:10:25.031694]   SELL NVDA: 7.9052 shares (~$1852.35, order eb37b628-fcaa-4993-b083-a718272f6022)
+[2026-10-02T15:10:27.111628]     re-placed stop-loss for NVDA: 4 shares (full remaining position) @ $215.57
+[2026-10-02T15:10:27.112459] === Run complete ===
+[2026-10-03T15:00:04.321728] === Starting daily trading run ===
+[2026-10-03T15:00:04.639844] Market is closed (next open: 2026-10-05 09:30:00-04:00). Exiting without trading.
+[2026-10-04T15:00:03.485066] === Starting daily trading run ===
+[2026-10-04T15:00:03.727466] Market is closed (next open: 2026-10-05 09:30:00-04:00). Exiting without trading.
+[2026-10-05T15:00:04.294422] === Starting daily trading run ===
+[2026-10-05T15:00:17.821406] Generated targets using data through 2026-10-05 (28 tickers)
+[2026-10-05T15:00:18.293522]   Canceled existing stop-loss on XOM to allow rebalance
+[2026-10-05T15:00:18.326800]   BUY XOM: 8 shares (~$1315.76, order cb582961-8f0b-43f8-a9c5-20a125e123f6)
+[2026-10-05T15:00:22.429727]     NOTE: XOM total position 31.443982094 shares (fractional) -- stop-loss covers 31 whole shares, 0.443982 remainder is UNPROTECTED.
+[2026-10-05T15:00:22.453287]     stop-loss placed for XOM: 31 shares (full position) @ $150.74
+[2026-10-05T15:00:22.453555] === Run complete ===
+[2026-10-06T15:00:03.484813] === Starting daily trading run ===
+[2026-10-06T15:00:11.822046] Generated targets using data through 2026-10-06 (28 tickers)
+[2026-10-06T15:00:11.952430]   Canceled existing stop-loss on AVGO to allow rebalance
+[2026-10-06T15:00:12.308433]   SELL AVGO: 5.3025 shares (~$2009.26, order 56f7c93b-6334-46c0-af24-37466bb86acd)
+[2026-10-06T15:00:14.402294]     re-placed stop-loss for AVGO: 1 shares (full remaining position) @ $348.62
+[2026-10-06T15:00:14.444726]   Canceled existing stop-loss on CSCO to allow rebalance
+[2026-10-06T15:00:14.557986]   SELL CSCO: 16.0124 shares (~$1864.48, order d94d00ac-2f1e-4266-83bb-f4230fae88cd)
+[2026-10-06T15:00:16.644732]     re-placed stop-loss for CSCO: 6 shares (full remaining position) @ $107.12
+[2026-10-06T15:00:16.684480]   Canceled existing stop-loss on COST to allow rebalance
+[2026-10-06T15:00:16.830353]   SELL COST: 2.6019 shares (~$2430.87, order e5ded955-e47d-4518-a232-fb0fc15c6ebf)
+[2026-10-06T15:00:18.961283]     re-placed stop-loss for COST: 1 shares (full remaining position) @ $859.53
+[2026-10-06T15:00:19.001597]   Canceled existing stop-loss on LIN to allow rebalance
+[2026-10-06T15:00:19.126769]   SELL LIN: 5.9682 shares (~$2925.55, order 256650f5-c2e9-49b9-9266-626fc37a3860)
+[2026-10-06T15:00:21.230926]     re-placed stop-loss for LIN: 2 shares (full remaining position) @ $450.97
+[2026-10-06T15:00:21.289929]   Canceled existing stop-loss on HON to allow rebalance
+[2026-10-06T15:00:21.313412]   BUY HON: 13 shares (~$2905.76, order dcddfdbe-6785-427d-b8fa-0b970f8197d9)
+[2026-10-06T15:00:23.414379]     NOTE: HON total position 18.939102474 shares (fractional) -- stop-loss covers 18 whole shares, 0.939102 remainder is UNPROTECTED.
+[2026-10-06T15:00:23.438124]     stop-loss placed for HON: 18 shares (full position) @ $195.26
+[2026-10-06T15:00:23.478481]   Canceled existing stop-loss on MSFT to allow rebalance
+[2026-10-06T15:00:23.545822]   SELL MSFT: 4.3794 shares (~$2324.12, order ac5422c2-a22a-44ca-9cc4-d8014052fc48)
+[2026-10-06T15:00:27.670484]     re-placed stop-loss for MSFT: 2 shares (full remaining position) @ $488.24
+[2026-10-06T15:00:28.731247]   Canceled existing stop-loss on XOM to allow rebalance
+[2026-10-06T15:00:28.791987]   SELL XOM: 9.3013 shares (~$1536.02, order 498ebedd-7ee9-4a14-91fd-7d03b05e055a)
+[2026-10-06T15:00:30.876372]     re-placed stop-loss for XOM: 22 shares (full remaining position) @ $151.93
+[2026-10-06T15:00:30.877049] === Run complete ===
+[2026-10-07T15:00:03.884967] === Starting daily trading run ===
+[2026-10-07T15:00:15.613738] Generated targets using data through 2026-10-07 (28 tickers)
+[2026-10-07T15:00:16.025013]   BUY CAT: 1 shares (~$811.39, order 119a8029-0c69-42e1-ba89-18f12bb8a74b)
+[2026-10-07T15:00:18.142628]     NOTE: CAT total position 1.918427333 shares (fractional) -- stop-loss covers 1 whole shares, 0.918427 remainder is UNPROTECTED.
+[2026-10-07T15:00:18.163756]     stop-loss placed for CAT: 1 shares (full position) @ $746.10
+[2026-10-07T15:00:18.257873]   Canceled existing stop-loss on AVGO to allow rebalance
+[2026-10-07T15:00:18.308719]   BUY AVGO: 5 shares (~$1868.85, order ce707aa5-502f-4ddd-b113-98417b69335e)
+[2026-10-07T15:00:22.456957]     NOTE: AVGO total position 6.780783927 shares (fractional) -- stop-loss covers 6 whole shares, 0.780784 remainder is UNPROTECTED.
+[2026-10-07T15:00:22.482073]     stop-loss placed for AVGO: 6 shares (full position) @ $343.76
+[2026-10-07T15:00:22.557047]   Canceled existing stop-loss on CSCO to allow rebalance
+[2026-10-07T15:00:22.584191]   BUY CSCO: 16 shares (~$1885.60, order 1a084242-b6db-4b16-99da-1e8e4fedc7e8)
+[2026-10-07T15:00:26.685245]     NOTE: CSCO total position 22.516821321 shares (fractional) -- stop-loss covers 22 whole shares, 0.516821 remainder is UNPROTECTED.
+[2026-10-07T15:00:26.706811]     stop-loss placed for CSCO: 22 shares (full position) @ $108.42
+[2026-10-07T15:00:26.707742] === Run complete ===
+[2026-10-08T16:01:46.353384] === Starting daily trading run ===
+[2026-10-08T16:01:47.043592] Market is closed (next open: 2026-10-09 09:30:00-04:00). Exiting without trading.
+[2026-10-09T15:00:03.895739] === Starting daily trading run ===
+[2026-10-09T15:00:16.296417] Generated targets using data through 2026-10-09 (28 tickers)
+[2026-10-09T15:00:16.760430]   Canceled existing stop-loss on CAT to allow rebalance
+[2026-10-09T15:00:16.782605]   BUY CAT: 1 shares (~$838.53, order 1d80bce2-f0da-4dfa-99cb-9673ef390194)
+[2026-10-09T15:00:18.876262]     NOTE: CAT total position 2.918427333 shares (fractional) -- stop-loss covers 2 whole shares, 0.918427 remainder is UNPROTECTED.
+[2026-10-09T15:00:18.900574]     stop-loss placed for CAT: 2 shares (full position) @ $738.65
+[2026-10-09T15:00:19.018128]   BUY AMD: 2 shares (~$1222.60, order 64b179d4-e643-4c28-ad2c-7ff1b10cec41)
+[2026-10-09T15:00:23.119415]     NOTE: AMD total position 2.944924458 shares (fractional) -- stop-loss covers 2 whole shares, 0.944924 remainder is UNPROTECTED.
+[2026-10-09T15:00:23.158141]     stop-loss placed for AMD: 2 shares (full position) @ $562.15
+[2026-10-09T15:00:23.197750]   Canceled existing stop-loss on AMT to allow rebalance
+[2026-10-09T15:00:23.265513]   SELL AMT: 8.0674 shares (~$1375.17, order 6edc3171-0bcf-4c61-a016-f32c98dde290)
+[2026-10-09T15:00:25.349720]     re-placed stop-loss for AMT: 12 shares (full remaining position) @ $156.82
+[2026-10-09T15:00:25.414072]   Canceled existing stop-loss on NVDA to allow rebalance
+[2026-10-09T15:00:25.437665]   BUY NVDA: 11 shares (~$2527.36, order 94cd65f3-6afe-4d54-9bdc-e7a79e53f118)
+[2026-10-09T15:00:27.527827]     NOTE: NVDA total position 15.0948 shares (fractional) -- stop-loss covers 15 whole shares, 0.094800 remainder is UNPROTECTED.
+[2026-10-09T15:00:27.553129]     stop-loss placed for NVDA: 15 shares (full position) @ $211.37
+[2026-10-09T15:00:27.599165]   BUY T: 88 shares (~$1947.44, order 91f536ef-43cb-43b4-80d3-19dfc424676b)
+[2026-10-09T15:00:31.703888]     NOTE: T total position 88.5959 shares (fractional) -- stop-loss covers 88 whole shares, 0.595900 remainder is UNPROTECTED.
+[2026-10-09T15:00:31.726344]     stop-loss placed for T: 88 shares (full position) @ $20.36
+[2026-10-09T15:00:31.826331]   BUY VZ: 44 shares (~$1828.64, order 7fccc77b-4406-42e9-b82c-4c9449bb64c0)
+[2026-10-09T15:00:33.910267]     NOTE: VZ total position 44.0476 shares (fractional) -- stop-loss covers 44 whole shares, 0.047600 remainder is UNPROTECTED.
+[2026-10-09T15:00:33.931376]     stop-loss placed for VZ: 44 shares (full position) @ $38.24
+[2026-10-09T15:00:33.969066]   Canceled existing stop-loss on XOM to allow rebalance
+[2026-10-09T15:00:34.033206]   SELL XOM: 14.8964 shares (~$2509.29, order 2a9832b8-5f53-44a1-9511-04b56ec15c0b)
+[2026-10-09T15:00:38.136045]     re-placed stop-loss for XOM: 7 shares (full remaining position) @ $154.97
+[2026-10-09T15:00:38.136452] === Run complete ===
+[2026-10-10T15:12:58.762950] === Starting daily trading run ===
+[2026-10-10T15:12:59.088477] Market is closed (next open: 2026-10-12 09:30:00-04:00). Exiting without trading.
+[2026-10-11T15:00:03.765809] === Starting daily trading run ===
+[2026-10-11T15:00:04.027744] Market is closed (next open: 2026-10-12 09:30:00-04:00). Exiting without trading.
+[2026-10-12T15:00:03.697802] === Starting daily trading run ===
+[2026-10-12T15:00:12.750533] Event risk (earnings/merger) suppressing new overweight signals: {'JPM', 'UNH', 'JNJ'}
+[2026-10-12T15:00:12.767890] Generated targets using data through 2026-10-12 (28 tickers)
+[2026-10-12T15:00:13.257720]   Canceled existing stop-loss on AMD to allow rebalance
+[2026-10-12T15:00:13.280809]   BUY AMD: 2 shares (~$1185.54, order ff9a3949-feeb-45d5-802a-92c271802d09)
+[2026-10-12T15:00:15.371895]     NOTE: AMD total position 4.944924458 shares (fractional) -- stop-loss covers 4 whole shares, 0.944924 remainder is UNPROTECTED.
+[2026-10-12T15:00:15.392704]     stop-loss placed for AMD: 4 shares (full position) @ $543.15
+[2026-10-12T15:00:15.429375]   Canceled existing stop-loss on CSCO to allow rebalance
+[2026-10-12T15:00:15.489904]   SELL CSCO: 15.7004 shares (~$1811.52, order 8a92879f-b87c-4949-925c-c0366e1379eb)
+[2026-10-12T15:00:17.583367]     re-placed stop-loss for CSCO: 6 shares (full remaining position) @ $106.15
+[2026-10-12T15:00:17.651416]   Canceled existing stop-loss on AAPL to allow rebalance
+[2026-10-12T15:00:17.679903]   BUY AAPL: 3 shares (~$1019.97, order 5c2ff29e-d430-4d83-a079-162a84640f5e)
+[2026-10-12T15:00:19.784507]     NOTE: AAPL total position 12.247496514 shares (fractional) -- stop-loss covers 12 whole shares, 0.247497 remainder is UNPROTECTED.
+[2026-10-12T15:00:19.812035]     stop-loss placed for AAPL: 12 shares (full position) @ $312.79
+[2026-10-12T15:00:19.851984]   Canceled existing stop-loss on V to allow rebalance
+[2026-10-12T15:00:19.945315]   SELL V: 7.4357 shares (~$2903.41, order 9f6682ab-277c-4c17-8129-550cca299ce8)
+[2026-10-12T15:00:26.069307]     re-placed stop-loss for V: 2 shares (full remaining position) @ $359.23
+[2026-10-12T15:00:26.069796] === Run complete ===
+[2026-10-13T15:06:44.559843] === Starting daily trading run ===
+[2026-10-13T15:06:50.656165] Event risk (earnings/merger) suppressing new overweight signals: {'UNH', 'JPM', 'JNJ'}
+[2026-10-13T15:06:50.673731] Generated targets using data through 2026-10-13 (28 tickers)
+[2026-10-13T15:06:51.088403]   Canceled existing stop-loss on CSCO to allow rebalance
+[2026-10-13T15:06:51.112806]   BUY CSCO: 18 shares (~$2067.48, order e78f89bc-0b0a-4a45-aa01-8c2132117e29)
+[2026-10-13T15:06:53.204988]     NOTE: CSCO total position 24.816421321 shares (fractional) -- stop-loss covers 24 whole shares, 0.816421 remainder is UNPROTECTED.
+[2026-10-13T15:06:53.224073]     stop-loss placed for CSCO: 24 shares (full position) @ $105.67
+[2026-10-13T15:06:54.284320]   Canceled existing stop-loss on GOOGL to allow rebalance
+[2026-10-13T15:06:54.363873]   SELL GOOGL: 7.9653 shares (~$2809.91, order 2cee9905-6781-4cb4-9400-1baae4760632)
+[2026-10-13T15:06:56.458561]     re-placed stop-loss for GOOGL: 3 shares (full remaining position) @ $324.55
+[2026-10-13T15:06:56.501807]   Canceled existing stop-loss on JNJ to allow rebalance
+[2026-10-13T15:06:56.569166]   SELL JNJ: 5.2737 shares (~$1306.45, order fda21ece-7165-4962-a612-8803798fdafa)
+[2026-10-13T15:07:00.693440]     re-placed stop-loss for JNJ: 10 shares (full remaining position) @ $227.91
+[2026-10-13T15:07:00.694342] === Run complete ===
+[2026-10-14T15:00:03.318676] === Starting daily trading run ===
+[2026-10-14T15:00:35.047533] Generated targets using data through 2026-10-14 (28 tickers)
+[2026-10-14T15:00:35.195327]   Canceled existing stop-loss on AMT to allow rebalance
+[2026-10-14T15:00:35.510004]   SELL AMT: 8.4530 shares (~$1429.40, order 9f95b617-a188-4bcb-ba17-d481dc1685a1)
+[2026-10-14T15:00:37.604992]     re-placed stop-loss for AMT: 3 shares (full remaining position) @ $155.57
+[2026-10-14T15:00:38.682273]   Canceled existing stop-loss on BA to allow rebalance
+[2026-10-14T15:00:38.703856]   BUY BA: 5 shares (~$941.50, order 4acbb41f-957f-4f59-80bc-e318a1fc4ac8)
+[2026-10-14T15:00:42.807161]     NOTE: BA total position 16.822827215 shares (fractional) -- stop-loss covers 16 whole shares, 0.822827 remainder is UNPROTECTED.
+[2026-10-14T15:00:42.830849]     stop-loss placed for BA: 16 shares (full position) @ $169.31
+[2026-10-14T15:00:43.920660]   Canceled existing stop-loss on GOOGL to allow rebalance
+[2026-10-14T15:00:43.950298]   BUY GOOGL: 8 shares (~$2775.12, order c93f0928-bae0-4088-8456-1ddd2dbf7ff7)
+[2026-10-14T15:00:46.038738]     NOTE: GOOGL total position 11.243432039 shares (fractional) -- stop-loss covers 11 whole shares, 0.243432 remainder is UNPROTECTED.
+[2026-10-14T15:00:46.061880]     stop-loss placed for GOOGL: 11 shares (full position) @ $319.12
+[2026-10-14T15:00:46.101636]   Canceled existing stop-loss on PG to allow rebalance
+[2026-10-14T15:00:46.166286]   SELL PG: 22.3809 shares (~$3495.22, order 4cbc087e-f5a6-4937-a6d6-b3299ac9b2aa)
+[2026-10-14T15:00:50.284091]     re-placed stop-loss for PG: 8 shares (full remaining position) @ $143.68
+[2026-10-14T15:00:50.347419]   Canceled existing stop-loss on VZ to allow rebalance
+[2026-10-14T15:00:50.371797]   BUY VZ: 25 shares (~$1105.75, order 23bed9c2-1741-4b29-af66-945c8039f7ea)
+[2026-10-14T15:00:52.459436]     NOTE: VZ total position 69.0476 shares (fractional) -- stop-loss covers 69 whole shares, 0.047600 remainder is UNPROTECTED.
+[2026-10-14T15:00:52.485587]     stop-loss placed for VZ: 69 shares (full position) @ $40.68
+[2026-10-14T15:00:52.524297]   Canceled existing stop-loss on WMT to allow rebalance
+[2026-10-14T15:00:52.589387]   SELL WMT: 27.0980 shares (~$3132.25, order a906d974-6563-41b4-ac35-167910214ed6)
+[2026-10-14T15:00:54.693416]     re-placed stop-loss for WMT: 8 shares (full remaining position) @ $106.34
+[2026-10-14T15:00:54.694155] === Run complete ===
+[2026-10-15T15:00:08.625873] === Starting daily trading run ===
+[2026-10-15T15:00:20.105217] Generated targets using data through 2026-10-15 (28 tickers)
+[2026-10-15T15:00:20.494694]   BUY AVGO: 6 shares (~$2056.44, order 51aa8f65-0dfe-43af-8b1e-346361a221a5)
+[2026-10-15T15:00:22.577545]     NOTE: AVGO total position 6.780783927 shares (fractional) -- stop-loss covers 6 whole shares, 0.780784 remainder is UNPROTECTED.
+[2026-10-15T15:00:22.612775]     stop-loss placed for AVGO: 6 shares (full position) @ $313.22
+[2026-10-15T15:00:22.669406]   BUY CAT: 2 shares (~$1460.64, order 7b15cb52-021b-40e4-bf26-f79c38b59096)
+[2026-10-15T15:00:24.746258]     NOTE: CAT total position 2.918427333 shares (fractional) -- stop-loss covers 2 whole shares, 0.918427 remainder is UNPROTECTED.
+[2026-10-15T15:00:24.767530]     stop-loss placed for CAT: 2 shares (full position) @ $671.72
+[2026-10-15T15:00:24.818586]   BUY AMD: 2 shares (~$1120.60, order e0cde9e3-3a5c-4f80-96ba-ff9a5c30af4a)
+[2026-10-15T15:00:26.909372]     NOTE: AMD total position 2.944924458 shares (fractional) -- stop-loss covers 2 whole shares, 0.944924 remainder is UNPROTECTED.
+[2026-10-15T15:00:26.936967]     stop-loss placed for AMD: 2 shares (full position) @ $493.13
+[2026-10-15T15:00:28.013256]   Canceled existing stop-loss on JPM to allow rebalance
+[2026-10-15T15:00:28.039056]   BUY JPM: 3 shares (~$1002.03, order d3f20922-1734-4a4c-bce0-8cb450ce71ac)
+[2026-10-15T15:00:30.119273]     NOTE: JPM total position 14.272265644 shares (fractional) -- stop-loss covers 14 whole shares, 0.272266 remainder is UNPROTECTED.
+[2026-10-15T15:00:30.143554]     stop-loss placed for JPM: 14 shares (full position) @ $307.26
+[2026-10-15T15:00:31.215045]   Canceled existing stop-loss on HON to allow rebalance
+[2026-10-15T15:00:31.236841]   BUY HON: 5 shares (~$1080.00, order 2e9ec423-c5cd-4454-8005-e50c5f19b4d1)
+[2026-10-15T15:00:33.333951]     NOTE: HON total position 23.939102474 shares (fractional) -- stop-loss covers 23 whole shares, 0.939102 remainder is UNPROTECTED.
+[2026-10-15T15:00:33.353239]     stop-loss placed for HON: 23 shares (full position) @ $191.91
+[2026-10-15T15:00:33.391765]   Canceled existing stop-loss on KO to allow rebalance
+[2026-10-15T15:00:33.518734]   SELL KO: 33.6701 shares (~$3102.36, order a15b71fa-9940-4a9d-8dff-599ff29eeea7)
+[2026-10-15T15:00:35.614011]     re-placed stop-loss for KO: 16 shares (full remaining position) @ $84.77
+[2026-10-15T15:00:36.751377]   Canceled existing stop-loss on MSFT to allow rebalance
+[2026-10-15T15:00:36.773874]   BUY MSFT: 5 shares (~$2703.10, order a0787cf9-0e6c-4b73-af92-cd799c7aac88)
+[2026-10-15T15:00:38.855347]     NOTE: MSFT total position 7.038043349 shares (fractional) -- stop-loss covers 7 whole shares, 0.038043 remainder is UNPROTECTED.
+[2026-10-15T15:00:38.879290]     stop-loss placed for MSFT: 7 shares (full position) @ $497.39
+[2026-10-15T15:00:38.929648]   Canceled existing stop-loss on UNH to allow rebalance
+[2026-10-15T15:00:38.994436]   SELL UNH: 6.0002 shares (~$2388.08, order 753497a0-dec0-4f2f-b030-04672e710f00)
+[2026-10-15T15:00:41.085116]     re-placed stop-loss for UNH: 2 shares (full remaining position) @ $366.16
+[2026-10-15T15:00:41.085810] === Run complete ===
+[2026-10-16T21:44:45.554547] === Starting daily trading run ===
+[2026-10-16T21:44:46.026392] Market is closed (next open: 2026-10-19 09:30:00-04:00). Exiting without trading.
+[2026-10-17T15:00:04.319843] === Starting daily trading run ===
+[2026-10-17T15:00:04.613336] Market is closed (next open: 2026-10-19 09:30:00-04:00). Exiting without trading.
+[2026-10-18T15:00:08.356585] === Starting daily trading run ===
+[2026-10-18T15:00:08.655828] Market is closed (next open: 2026-10-19 09:30:00-04:00). Exiting without trading.
+[2026-10-19T16:51:20.202091] === Starting daily trading run ===
+[2026-10-19T16:51:20.495089] Market is closed (next open: 2026-10-20 09:30:00-04:00). Exiting without trading.
+[2026-10-20T15:00:03.813567] === Starting daily trading run ===
+[2026-10-20T15:00:12.042346] Event risk (earnings/merger) suppressing new overweight signals: {'T', 'PG', 'HON', 'NEE', 'META'}
+[2026-10-20T15:00:12.058990] Generated targets using data through 2026-10-20 (28 tickers)
+[2026-10-20T15:00:12.559069]   BUY CSCO: 28 shares (~$2985.92, order 58595c7b-5bdf-4b20-ab59-9572650d4175)
+[2026-10-20T15:00:14.720835]     NOTE: CSCO total position 28.816421321 shares (fractional) -- stop-loss covers 28 whole shares, 0.816421 remainder is UNPROTECTED.
+[2026-10-20T15:00:14.746889]     stop-loss placed for CSCO: 28 shares (full position) @ $98.11
+[2026-10-20T15:00:14.800964]   Canceled existing stop-loss on HD to allow rebalance
+[2026-10-20T15:00:14.876678]   SELL HD: 7.8143 shares (~$2466.10, order 3f112424-1a91-46c6-9b49-6731e2bfa59d)
+[2026-10-20T15:00:18.987911]     re-placed stop-loss for HD: 3 shares (full remaining position) @ $290.34
+[2026-10-20T15:00:18.989846] === Run complete ===
+[2026-10-21T15:00:03.235615] === Starting daily trading run ===
+[2026-10-21T15:00:13.581628] Event risk (earnings/merger) suppressing new overweight signals: {'PG', 'HON', 'T', 'META', 'NEE'}
+[2026-10-21T15:00:13.594049] Generated targets using data through 2026-10-21 (28 tickers)
+[2026-10-21T15:00:14.195043]   Canceled existing stop-loss on AAPL to allow rebalance
+[2026-10-21T15:00:14.835598]   SELL AAPL: 8.3807 shares (~$2881.88, order 8045a6af-3e2a-4263-9a56-dfa58e84df9d)
+[2026-10-21T15:00:19.088837]     re-placed stop-loss for AAPL: 3 shares (full remaining position) @ $316.36
+[2026-10-21T15:00:20.192278]   Canceled existing stop-loss on AMD to allow rebalance
+[2026-10-21T15:00:20.339372]   BUY AMD: 2 shares (~$1107.80, order 8d8e59bf-e4f6-43b7-8e6a-8ccedd08ac76)
+[2026-10-21T15:00:22.445659]     NOTE: AMD total position 4.944924458 shares (fractional) -- stop-loss covers 4 whole shares, 0.944924 remainder is UNPROTECTED.
+[2026-10-21T15:00:22.493850]     stop-loss placed for AMD: 4 shares (full position) @ $509.01
+[2026-10-21T15:00:23.576109]   Canceled existing stop-loss on DIS to allow rebalance
+[2026-10-21T15:00:23.645050]   SELL DIS: 21.1651 shares (~$2348.06, order ead41d79-e4c5-48de-8670-51d7402b775c)
+[2026-10-21T15:00:29.878544]     re-placed stop-loss for DIS: 10 shares (full remaining position) @ $102.06
+[2026-10-21T15:00:29.879506] === Run complete ===
+[2026-10-22T16:34:33.452893] === Starting daily trading run ===
+[2026-10-22T16:34:33.851774] Market is closed (next open: 2026-10-23 09:30:00-04:00). Exiting without trading.
+[2026-10-23T15:31:21.968429] === Starting daily trading run ===
+[2026-10-23T15:31:31.097318] Generated targets using data through 2026-10-23 (28 tickers)
+[2026-10-23T15:31:31.508805]   Canceled existing stop-loss on AAPL to allow rebalance
+[2026-10-23T15:31:31.541574]   BUY AAPL: 10 shares (~$3468.90, order 58189959-6c58-47d8-afae-678e98ca0644)
+[2026-10-23T15:31:35.649322]     NOTE: AAPL total position 13.866796514 shares (fractional) -- stop-loss covers 13 whole shares, 0.866797 remainder is UNPROTECTED.
+[2026-10-23T15:31:35.670542]     stop-loss placed for AAPL: 13 shares (full position) @ $319.10
+[2026-10-23T15:31:35.716134]   BUY AMD: 2 shares (~$1033.94, order dd4eabff-b79c-4d4d-982e-bfcbea571b00)
+[2026-10-23T15:31:37.799618]     NOTE: AMD total position 2.944924458 shares (fractional) -- stop-loss covers 2 whole shares, 0.944924 remainder is UNPROTECTED.
+[2026-10-23T15:31:37.825243]     stop-loss placed for AMD: 2 shares (full position) @ $472.19
+[2026-10-23T15:31:37.864259]   BUY META: 2 shares (~$1292.00, order 55feece8-8015-41d6-aae8-b72f5361ce13)
+[2026-10-23T15:31:39.952007]     NOTE: META total position 2.987514685 shares (fractional) -- stop-loss covers 2 whole shares, 0.987515 remainder is UNPROTECTED.
+[2026-10-23T15:31:39.973069]     stop-loss placed for META: 2 shares (full position) @ $593.70
+[2026-10-23T15:31:40.016528]   Canceled existing stop-loss on NEE to allow rebalance
+[2026-10-23T15:31:40.073779]   SELL NEE: 35.7616 shares (~$2930.31, order 720e2bd9-2f67-4446-b2ce-a4e3562d13b0)
+[2026-10-23T15:31:42.178460]     re-placed stop-loss for NEE: 14 shares (full remaining position) @ $75.38
+[2026-10-23T15:31:42.229864]   BUY NVDA: 14 shares (~$2964.78, order 4b807bf5-34e9-4a2d-865e-ef3d83fe4dc2)
+[2026-10-23T15:31:44.320397]     NOTE: NVDA total position 14.0948 shares (fractional) -- stop-loss covers 14 whole shares, 0.094800 remainder is UNPROTECTED.
+[2026-10-23T15:31:44.344374]     stop-loss placed for NVDA: 14 shares (full position) @ $194.79
+[2026-10-23T15:31:44.387477]   Canceled existing stop-loss on PFE to allow rebalance
+[2026-10-23T15:31:44.452022]   SELL PFE: 109.8774 shares (~$3299.62, order c00d0376-2dc4-49fc-ab30-d85f352d81b1)
+[2026-10-23T15:31:48.568871]     re-placed stop-loss for PFE: 42 shares (full remaining position) @ $27.63
+[2026-10-23T15:31:48.569501] === Run complete ===

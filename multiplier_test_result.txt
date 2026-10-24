@@ -1,0 +1,32 @@
+﻿Fetching data and building features (once, shared across all candidates)...
+
+=== UNDERWEIGHT_MULTIPLIER = 0.3 ===
+  total_return_pct: 56.301
+  annualized_sharpe: 1.638
+  max_drawdown_pct: -11.620
+  num_trades: 1592
+  win_rate_pct: 60.804
+
+=== UNDERWEIGHT_MULTIPLIER = 0.5 ===
+  total_return_pct: 56.301
+  annualized_sharpe: 1.638
+  max_drawdown_pct: -11.620
+  num_trades: 1592
+  win_rate_pct: 60.804
+
+=== UNDERWEIGHT_MULTIPLIER = 0.6 ===
+  total_return_pct: 56.301
+  annualized_sharpe: 1.638
+  max_drawdown_pct: -11.620
+  num_trades: 1592
+  win_rate_pct: 60.804
+
+=== BENCHMARK (same for all candidates, same data pull) ===
+  total_return_pct: 117.703
+  annualized_sharpe: 1.025
+  max_drawdown_pct: -24.014
+
+=== SUMMARY ===
+  mult=0.3: return=56.30%  sharpe=1.638  max_dd=-11.62%  trades=1592
+  mult=0.5: return=56.30%  sharpe=1.638  max_dd=-11.62%  trades=1592
+  mult=0.6: return=56.30%  sharpe=1.638  max_dd=-11.62%  trades=1592
